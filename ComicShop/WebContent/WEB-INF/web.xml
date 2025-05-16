@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
                              http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">  <display-name>ComicShop</display-name>
-  <welcome-file-list>
-    <welcome-file>Homepage.jsp</welcome-file>
+   <welcome-file-list>
+    <welcome-file>ProductView.jsp</welcome-file>
   </welcome-file-list>
   <resource-ref>
     <description>JNDI reference to a data source</description>
@@ -15,7 +15,7 @@
   </resource-ref>
   <servlet>
     <servlet-name>ProductControl</servlet-name>
-    <servlet-class>control.ProductControl</servlet-class>
+    <servlet-class>it.unisa.control.ProductControl</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductControl</servlet-name>
