@@ -1,4 +1,3 @@
-
 package it.unisa.control;
 
 import java.io.IOException;
@@ -31,14 +30,11 @@ public class OrdineControl extends HttpServlet {
 		if (action != null) {
 			if (action.equalsIgnoreCase("CompletaOrdine")) {
 				 HttpSession session = request.getSession(true);	     
-				if (session.getAttribute("currentSessionUser") != null)
-				{OrderDAO.setOrder((UserBean)session.getAttribute("currentSessionUser"), cart);
+			
+				OrderDAO.setOrder((UserBean)session.getAttribute("currentSessionUser"), cart);
 				session.setAttribute("cart", new Cart());
-				}
-				else
-				{
-					response.sendRedirect("loginPage.jsp");
-				}
+				
+				
 			} 
 		}
 	}
