@@ -1,4 +1,3 @@
-
 package it.unisa.model;
 
 import java.io.Serializable;
@@ -17,6 +16,7 @@ public class ProductBean implements Serializable {
 		String descrizione;
 		float peso;
 		int quantità;
+		boolean visible;
 
 		public ProductBean() {
 			id = -1;
@@ -28,9 +28,21 @@ public class ProductBean implements Serializable {
 			descrizione = "";
 			peso=-1;
 			quantità = -1;
+			visible=false;
+
 		}
 
 		
+		public boolean isVisible() {
+			return visible;
+		}
+
+
+		public void setVisible(boolean visible) {
+			this.visible = visible;
+		}
+
+
 		public int getId() {
 			return id;
 		}
@@ -129,5 +141,4 @@ public class ProductBean implements Serializable {
 		}
 
 	}
-
 
