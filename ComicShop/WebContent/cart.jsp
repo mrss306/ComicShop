@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.Cart,it.unisa.model.ItemOrder"
 	pageEncoding="UTF-8"%>
@@ -72,7 +73,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 						VALUE=<%=beancart.getNumItems()%>> <INPUT TYPE=SUBMIT
 						VALUE=Update>
 				</form></td>
-			<td><%=beancart.getTotalCost()%> &euro;</td>
+			<td><%= String.format("%.2f", beancart.getTotalCost()) %> &euro;</td>
 			<td><a href="product?action=deleteC&id=<%=beancart.getId()%>">Elimina
 					dal carrello</a></td>
 		</tr>
@@ -89,7 +90,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 		
 		<tr>
 		<th  colspan=3>Totale: </th>
-		<td> <%=prezzo_finale %> &euro;</td>
+		<td> <%=String.format("%.2f", prezzo_finale)  %> &euro;</td>
 		</tr>
 		</tfoot>
 	</table>

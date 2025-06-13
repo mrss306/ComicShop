@@ -1,3 +1,4 @@
+
 <%@page import="it.unisa.model.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -42,7 +43,7 @@
 					if (((UserBean) session.getAttribute("currentSessionUser")).IsAdmin()) {
 					%>
 					<li><a href="./OrderArchive">Storico ordini admin</a></li>
-					<li><a href="./Admin/Catalogo.jsp">Catalogo</a></li>
+					<li><a href="./Catalogo">Catalogo</a></li>
 					<%
 					}
 					%>
