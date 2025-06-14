@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.Cart,it.unisa.model.ItemOrder"
 	pageEncoding="UTF-8"%>
@@ -49,9 +48,9 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 	if (cart != null) {
 	%>
 	<h2>Carrello</h2>
-	<div class=cart>
+	<div class=details>
 	<table >
-	<thead class=cart>
+	<thead class=details>
 		<tr>
 			<th>Articolo:</th>
 			<th>Quantità:</th>
@@ -64,7 +63,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 		float prezzo_finale = 0;
 		for (ItemOrder beancart : prodcart) {
 		%>
-	<tbody class=cart>
+	<tbody class=details>
 		<tr>
 			<td><%=beancart.getNome()%></td>
 			<td><form>
@@ -89,7 +88,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 		<tfoot class=cart> 
 		
 		<tr>
-		<th  colspan=3>Totale: </th>
+		<th colspan=2>Totale: </th>
 		<td> <%=String.format("%.2f", prezzo_finale)  %> &euro;</td>
 		</tr>
 		</tfoot>

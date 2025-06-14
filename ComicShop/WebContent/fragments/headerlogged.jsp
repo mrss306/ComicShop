@@ -1,4 +1,3 @@
-
 <%@page import="it.unisa.model.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -23,12 +22,14 @@
 				</div>
 				<ul class="nav-list">
 
+			<%-- 
+
 					<li>
 						<form action="" id="searchform" method="get">
 							<input type="search" name="search" placeholder="Cerca..." />
 						</form>
 					</li>
-
+--%>
 					<li><a href="#!">Ciao, <%=((UserBean) session.getAttribute("currentSessionUser")).getNome()%>
 					</a>
 						<ul class="nav-dropdown">

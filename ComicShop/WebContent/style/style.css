@@ -5,7 +5,7 @@
 }
 
 div.register{
-		width: 400px;
+	width: 400px;
   	border: 1px solid black;
   	padding: 12px 20px 12px;
  	margin-left: auto;
@@ -28,7 +28,7 @@ table {
 	
 }
 
-img { display:block; }
+/*img { display:block; }*/
 
 tbody td{
 	border-spacing:5px;
@@ -52,20 +52,146 @@ tbody.catalogo tr {
 tbody.catalogo tr:hover {background-color: #a992d3 ;}
 
 
-
-thead.cart tr{
-	height: 50px;
-	background: #FFED86;
-	font-size: 16px;
-	border:1px solid black
+.user ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #f1f1f1;
+	border: 1px solid #555;
+	display: contents;
+	list-style-type: none;
 }
+
+.user-container ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	border: groove;
+	border-radius: inherit;
+}
+
+.user-container li {
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.user li {
+	text-align: center;
+	border-bottom: 1px solid #555;
+}
+
+.user li:last-child {
+	border-bottom: none;
+}
+
+div.user-container {
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	overflow: hidden;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+	border-radius: 6px;
+}
+
+div.user {
+	margin-left: auto;
+	margin-right: auto;
+	
+	border-collapse: collapse;
+	overflow: hidden;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+	border-radius: 6px;
+}
+
+div.user-label {
+	padding: 10px 0px 0px 20px;
+}
+
+
+
+input.user[type=text], input.user[type=email],
+input.user[type=date],
+select {
+  	width: 50%;
+  	padding: 0px 10px 20px 20px;
+  	border: 1px;
+  	outline: none;
+}
+
+input.user[type=date], select {
+	width: 30%;
+}
+
+#metodoPagamento, #indirizzo{
+	width:95%;
+}
+
+div.user-link{
+	text-align:center
+}
+
+.details  input[type=number], input[type=checkbox],
+select {
+	width: 90px;
+  	padding: 12px 20px;
+  	margin: 8px;
+  	display: inline-block;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	box-sizing: border-box;
+}
+
+#prezzo_cat {
+	width: 90px;
+  	padding: 12px 20px;
+  	margin: 8px;
+  	display: inline-block;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	box-sizing: border-box;
+}
+
+.details  input[type=date], input[type=text],
+select {
+	width: 200px;
+  	padding: 12px 20px;
+  	margin: 8px;
+  	display: inline-block;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	box-sizing: border-box;
+}
+
+
+.details input[type=submit], input[type=reset],
+select {
+	width: 90px;
+  	padding: 12px 20px;
+  	margin: 8px;
+  	display: inline-block;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	box-sizing: border-box;
+}
+
+.btn-det:hover {
+	background-color: #FFED86;
+}
+
+
 
 tbody.cart tr{
 	background-color:#f0f0f5;
 	border: 1px solid black;
 	border-spacing:5px;
 	text-align:center;
-	height: 50px; 
+	height: 50px;
+	background: #FFED86;
+	font-size: 16px; 
 }
 
 tfoot.cart th{
@@ -73,7 +199,6 @@ tfoot.cart th{
 }
 
 tbody.cart tr:hover {background-color: #a992d3 ;}
-
 
 
 thead.details tr{
@@ -138,12 +263,6 @@ tfoot.paymentMethod td{
 	text-align: center;
 }
 
-thead.paymentMethod tr{
-	height: 50px;
-	background: #FFED86;
-	font-size: 16px;
-	border:1px solid black
-}
 
 tbody.paymentMethod tr {
 	background-color:#f0f0f5;
@@ -246,6 +365,7 @@ h1, h2, h3, h4 {
 	clear: both;
 }
 
+
 div.container {
 	display: flex;
 	justify-content: space-between;
@@ -281,6 +401,7 @@ div.container {
   	border: 1px solid #CCC;
   	height: 34px;
 }
+
 #checkout
 {
     transition: .5s ease;
@@ -293,3 +414,70 @@ div.container {
 	margin-left:7em;
 	margin-top:1000px;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-row-gap: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-gap: 40px;
+    justify-content: center;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  width: 100%!important;
+  
+}
+
+.thumbnail {
+	display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.item-description {
+	margin-top: 5px;
+    margin-bottom: 100px;
+    text-align: center;
+    text-transform: none;
+    height: 30px;
+}
+
+.grid-item img:hover {
+	transform: scale(1.25);
+}
+
+@media screen and (max-width: 1140px) {
+	.grid-container {
+		grid-template-columns: repeat(3, 1fr);
+		margin-left:20px;
+		margin-right: 20px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.grid-container {
+		grid-template-columns: repeat(2, 1fr);
+		margin-left:20px;
+		margin-right: 20px;
+	}
+}
+
+
+
+ 

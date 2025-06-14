@@ -1,4 +1,3 @@
-
 <%@page import="it.unisa.model.PhotoBean"%>
 <%@page import="it.unisa.model.PhotoDAO"%>
 <%@page import="java.io.*"%>
@@ -38,7 +37,7 @@ if (products == null) {
 <%@ page contentType="text/html; charset=UTF-8"
 	import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.Cart, it.unisa.model.ItemOrder"%>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="./style/style.css" rel="stylesheet" type="text/css">
@@ -50,6 +49,52 @@ if (products == null) {
 
 
 	<h2>Prodotti</h2>
+
+
+
+
+	<div class="grid-container">
+	<%
+			if (products != null && products.size() != 0) {
+				Iterator<?> it = products.iterator();
+				while (it.hasNext()) {
+					ProductBean bean = (ProductBean) it.next();
+					LinkedList<PhotoBean> foto = (LinkedList<PhotoBean>) fotodao.getPhotos(bean);
+					if (bean.isVisible()) {
+			%>
+		<div class="grid-item">
+			<div class="thumbnail">
+				<a href="product?action=read&id=<%=bean.getId()%>"> <img src="data:image/jpg;base64,<%=foto.get(0).getBase64image()%>" width=100% height=300/> </a>
+			</div>
+			<div class="item-description">
+				<h4><%=bean.getNome()%></h4>
+				<h5><%=String.format("%.2f", bean.getPrezzo())%> &euro;</h5>
+				<h6><a href="product?action=addC&id=<%=bean.getId()%>">Aggiungi al carrello</a></h6>
+			</div> 	
+		</div>
+					
+					
+					
+					
+
+
+					<%
+			} else {
+			continue;
+			}
+			}
+			} else {
+			%>
+			
+				<h3>Nessun prodotto disponibile</h3>
+			
+			<%
+			}
+			%>
+
+</div>
+
+<%-- 
 
 	<table>
 		<thead class=catalogo>
@@ -99,6 +144,87 @@ if (products == null) {
 			%>
 		</tbody>
 	</table>
+
+
+--%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%-- 
+	<table>
+		<thead class=catalogo>
+			<tr>
+				<th>Foto</th>
+				<th><a href="product?sort=nome">Nome</a></th>
+				<th><a href="product?sort=prezzo">Prezzo</a></th>
+				<th><a href="product?sort=voto">Voto</a></th>
+				<th><a href="product?sort=quantita">Quantita'</a></th>
+				<th>Azioni</th>
+			</tr>
+		</thead>
+		<tbody class=catalogo>
+			<%
+			if (products != null && products.size() != 0) {
+				Iterator<?> it = products.iterator();
+				while (it.hasNext()) {
+					ProductBean bean = (ProductBean) it.next();
+					LinkedList<PhotoBean> foto = (LinkedList<PhotoBean>) fotodao.getPhotos(bean);
+					if (bean.isVisible()) {
+			%>
+			<tr>
+				<td><img
+					src="data:image/jpg;base64,<%=foto.get(0).getBase64image()%> "
+					width=200 height=200 /></td>
+				<td><%=bean.getNome()%></td>
+				<td><%=String.format("%.2f", bean.getPrezzo())%> &euro;</td>
+				<td><%=bean.getVoto()%></td>
+				<td><%=bean.getQuantità()%></td>
+				<td><a href="product?action=read&id=<%=bean.getId()%>">Dettagli</a><br>
+					<a href="product?action=addC&id=<%=bean.getId()%>">Aggiungi al
+						carrello</a></td>
+			</tr>
+
+			<%
+			} else {
+			continue;
+			}
+			}
+			} else {
+			%>
+			<tr>
+				<td colspan="6">Nessun prodotto disponibile</td>
+			</tr>
+			<%
+			}
+			%>
+		</tbody>
+	</table>
+
+--%>
+
+
+
+
+
+
+
+
+
 
 
 
