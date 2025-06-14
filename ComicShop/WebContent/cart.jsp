@@ -48,9 +48,9 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 	if (cart != null) {
 	%>
 	<h2>Carrello</h2>
-	<div class=details>
+	<div class=cart>
 	<table >
-	<thead class=details>
+	<thead class=cart>
 		<tr>
 			<th>Articolo:</th>
 			<th>Quantità:</th>
@@ -63,7 +63,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 		float prezzo_finale = 0;
 		for (ItemOrder beancart : prodcart) {
 		%>
-	<tbody class=details>
+	<tbody class=cart>
 		<tr>
 			<td><%=beancart.getNome()%></td>
 			<td><form>
@@ -88,18 +88,19 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 		<tfoot class=cart> 
 		
 		<tr>
-		<th colspan=2>Totale: </th>
+		<th  colspan=3>Totale: </th>
 		<td> <%=String.format("%.2f", prezzo_finale)  %> &euro;</td>
 		</tr>
 		</tfoot>
 	</table>
 	<br>
-	
+	<%if (!cart.IsEmpty()) {%>
 	<div class=wrapper>
 	<form class=cart action="./CheckOut" method="get" id="checkout">
 	<button class=btn type="submit">Checkout</button>
 	</form>
 	</div>
+	<%} %>
 	</div>
 	<%
 	}
