@@ -87,7 +87,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
         		</td>
         		<td>
             		<input type="hidden" name="action" value="insert">
-            		<input class=details name="descrizione" type="text" maxlength="100" rows="3" 
+            		<input class=details name="descrizione" type="text" maxlength="100" 
             		required placeholder="Inserisci descrizione">
         		</td>
         		<td>
