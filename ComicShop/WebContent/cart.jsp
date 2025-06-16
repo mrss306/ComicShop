@@ -47,7 +47,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 	<%
 	if (cart != null) {
 	%>
-	<h2>Carrello</h2>
+	<h2>Carrello</h2><br>
 	<div class=cart>
 	<table >
 	<thead class=cart>
@@ -68,7 +68,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 			<td><%=beancart.getNome()%></td>
 			<td><form>
 					<INPUT type="hidden" name=itemID value=<%=beancart.getId()%>>
-					<INPUT TYPE=TEXT NAME=numItems SIZE=3
+					<INPUT TYPE=number NAME=numItems SIZE=3
 						VALUE=<%=beancart.getNumItems()%>> <INPUT TYPE=SUBMIT
 						VALUE=Update>
 				</form></td>
@@ -96,9 +96,20 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 	<br>
 	<%if (!cart.IsEmpty()) {%>
 	<div class=wrapper>
+	
 	<form class=cart action="./CheckOut" method="get" id="checkout">
 	<button class=btn type="submit">Checkout</button>
 	</form>
+	
+	<br>
+	
+	<form class="cart" action="product" method="get" style="display:inline;">
+  <input type="hidden" name="action" value="emptyC">
+  <button class="btn" type="submit">Svuota Carrello</button>
+</form>
+
+	
+	
 	</div>
 	<%} %>
 	</div>
