@@ -30,22 +30,58 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 				onclick="this.parentElement.style.display='none';">&times;</span>
 				<span id="errorspan"></span>
 		</div>
+		
 		<form action="UserControl" id="myform">
-			<label>Username<input class=register type=text name="usr"
-				placeholder="slowturtle12" required></label> <br> <label>Nome<input
-				class=register type=text name="nome" placeholder="mario" required></label>
-			<br> <label>Cognome<input class=register type=text
-				name="cogn" placeholder="rossi" required></label> <br> <label>Email<input
-				class=register type=email name=email
-				placeholder="someone@something.com"></label> <br> <label>Password<input
-				class=register type=password name=pwd placeholder="supersecret"
-				required></label> <br> <label>Num_tel<input
-				class=register type=number name=num_tel placeholder="3331725467"
-				required></label> <br> <label>Paese di residenza<input
-				class=register type=text name=paese placeholder="Italia" required></label>
-			<br> <label>Data di nascita<input class=register
-				type=date name=data required></label><br> <input class=btn
-				type=submit value=Registrati>
+		
+			<label>Username
+			<input class=register type=text name="usr" placeholder="slowturtle12" required></label> 
+			<br> 
+			
+			<label>Nome
+			<input	class=register type=text name="nome" placeholder="mario" required></label>
+			<br> 
+			
+			<label>Cognome
+			<input class=register type=text name="cogn" placeholder="rossi" required></label> 
+			<br> 
+			
+			<label>Email
+			<input	class=register type=email name=email placeholder="someone@something.com"></label> 
+			<br> 
+			
+			<label>Password
+			<input	class=register type=password name=pwd placeholder="supersecret" required></label> 
+			<br> 
+			
+			<label>Numero di Telefono
+			<input class=register type=text name=num_tel placeholder="3331725467" required></label> 
+			<br> 
+			
+			<label>Paese di residenza
+			<input class=register type=text name=paese placeholder="Italia" required></label>
+			<br> 
+			
+			<label>Via Indirizzo di Spedizione
+			<input class=register type=text name=via placeholder="Via Domenico Catalano 27" required></label>
+			<br>
+			
+			<label>Citt&agrave
+			<input class=register type=text name=citta placeholder="Scafati" required></label>
+			<br>
+			
+			<label>Provincia
+			<input class=register type=text name=provincia placeholder="SA" required></label>
+			<br>
+			
+			<label>Numero Carta di Credito
+			<input class=register type=text name=carta placeholder="1234123412341234" required></label>
+			<br>     
+			
+			<label>Data di nascita
+			<input class=register type=date name=data required></label><br> 
+			
+			
+			<input class=btn type=submit value=Registrati>
 		</form>
 	</div>
 </body>

@@ -44,8 +44,15 @@ public class UserControl extends HttpServlet {
 		String password = request.getParameter("pwd");
 		String num_telefono = request.getParameter("num_tel");
 		String paese_residenza = request.getParameter("paese");
+		String via = request.getParameter("via");
+		String citta = request.getParameter("citta");
+		String provincia = request.getParameter("provincia");
+		String carta = request.getParameter("carta");
 		LocalDate data_nascita = LocalDate.parse(request.getParameter("data"));
+				
+		
 		UserBean user = new UserBean();
+		
 		user.setUsername(username);
 		user.setNome(nome);
 		user.setCognome(cognome);
@@ -53,7 +60,13 @@ public class UserControl extends HttpServlet {
 		user.setPassword(password);
 		user.setNum_tel(num_telefono);
 		user.setPaese_residenza(paese_residenza);
+		user.setVia(via);
+		user.setCitta(citta);
+        user.setProvincia(provincia);
+        user.setCarta(carta);
 		user.setData_nascita(data_nascita);
+		
+		
 		UserDAO.doSave(user);
 
 		response.sendRedirect("loginPage.jsp");

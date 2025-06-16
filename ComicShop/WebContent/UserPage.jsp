@@ -67,7 +67,7 @@
 		
 		<li>
 		<div class="user">
-			<div class="user-label">Via:</div>
+			<div class="user-label">Via Indirizzo di Spedizione:</div>
 				<input class="user" name=via type="text" value="<%=user.getVia()%>">
 			</div>
 		</li>
@@ -107,4 +107,5 @@
 	
 
 </body>
+<%@ include file="./fragments/footer.html"%>
 </html>
