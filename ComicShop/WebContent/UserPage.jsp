@@ -26,21 +26,21 @@
 			<div class="user">
 			<h3>I miei dati</h3>
 				<div class="user-label">Nome:</div>
-				<input class="user" name=nome type="text" value=<%=user.getNome()%>>
+				<input class="user" name=nome type="text" value="<%=user.getNome()%>">
 			</div>
 		</li>
 		
 		<li>
 		<div class="user">
 			<div class="user-label">Cognome:</div>
-				<input class="user" name=cognome type="text" value=<%=user.getCognome()%>>
+				<input class="user" name=cognome type="text" value="<%=user.getCognome()%>">
 			</div>
 		</li>
 		
 		<li>
 		<div class="user">
 			<div class="user-label">Email:</div>
-				<input class="user" name=email  type="email" value=<%=user.getEmail()%>>
+				<input class="user" name=email  type="email" value="<%=user.getEmail()%>">
 			</div>
 		</li>
 		
@@ -50,6 +50,50 @@
 				<input class="user" name=data type="date" value=<%=user.getData_nascita()%>>
 			</div>
 		</li>
+		
+		<li>
+		<div class="user">
+			<div class="user-label">Numero di Telefono:</div>
+				<input class="user" name=num_telefono type="text" value="<%=user.getNum_tel()%>">
+			</div>
+		</li>
+		
+		<li>
+		<div class="user">
+			<div class="user-label">Paese di Residenza:</div>
+				<input class="user" name=paese_residenza type="text" value="<%=user.getPaese_residenza()%>">
+			</div>
+		</li>
+		
+		<li>
+		<div class="user">
+			<div class="user-label">Via:</div>
+				<input class="user" name=via type="text" value="<%=user.getVia()%>">
+			</div>
+		</li>
+		
+		<li>
+		<div class="user">
+			<div class="user-label">Citt&agrave:</div>
+				<input class="user" name=citta type="text" value="<%=user.getCitta()%>">
+			</div>
+		</li>
+		
+		<li>
+		<div class="user">
+			<div class="user-label">Provincia:</div>
+				<input class="user" name=provincia type="text" value="<%=user.getProvincia()%>">
+			</div>
+		</li>
+		
+		<li>
+		<div class="user">
+			<div class="user-label">Carta di Credito:</div>
+				<input class="user" name=carta type="text" value="<%=user.getCarta()%>">
+			</div>
+		</li>
+		
+		
 		<li>
 		<div class="user">
 			<div class="user-label"></div>
@@ -59,101 +103,7 @@
 		</li>
 	</ul>
 	</form>
-</div>	
 
-	<br>
-		
-		<div class="user-container">
-		
-			<ul>
-				<li>
-					<div class="user-payment">
-					<h3>I miei indirizzi </h3>
-						<select id="indirizzo" name="indirizzo" class=select-large>
-			<%
-			if (indirizzi != null) {
-				for (String indirizzo : indirizzi) {
-			%>
-			<option value="<%=indirizzo%>">
-				<%=indirizzo%>
-			</option>
-			<%
-			}
-			} else {
-			%>
-			<option>Nessun indirizzo in archivio</option>
-			<%
-			}
-			%>
-				</select>
-		<br>
-			<div class="user-link">
-				<a href=AddressRegistration.jsp>Inserisci un nuovo indirizzo</a>
-			</div>
-		<br>
-				</div>
-			</li>
-		</ul>
-	</div>
-
-	<br>
-	
-	<div class="user-container">
-			<ul>
-				<li>
-					<div class="user-payment">
-					<h3>I miei metodi di pagamento</h3>
-						<select id="metodoPagamento" name="pagamento" class=select-large>
-			<%
-			if (metodiPagamento != null) {
-			for (String metodoPagamento : metodiPagamento) {
-			%>
-					<option value="<%=metodoPagamento%>"><%=metodoPagamento%>
-					</option>
-
-			<%
-			}
-			} else {
-			%>
-					<option>Nessun metodo di pagamento registrato</option>
-			<%
-			}
-			%>
-				</select>
-		<br>
-			<div class="user-link">
-				<a href=PaymentMethodRegistration.jsp>Inserisci un nuovo metodo di
-				pagamento</a>
-			</div>
-		<br>
-				</div>
-			</li>
-		</ul>
-	</div>
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
 	
 
 </body>

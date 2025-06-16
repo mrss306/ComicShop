@@ -37,6 +37,13 @@ public class UserUpdateServlet extends HttpServlet {
 			String cognome = request.getParameter("cognome");
 			String email = request.getParameter("email");
 			LocalDate data =LocalDate.parse(request.getParameter("data"));
+			String num_telefono = request.getParameter("num_telefono");
+			String paese_residenza = request.getParameter("paese_residenza");
+			String via = request.getParameter("via");
+			String citta = request.getParameter("citta");
+			String provincia = request.getParameter("provincia");
+			String carta = request.getParameter("carta");
+			
 			HttpSession session = request.getSession(false);	    
 	         UserBean user= (UserBean) session.getAttribute("currentSessionUser");
 	         UserDAO dao= new UserDAO();
@@ -44,8 +51,15 @@ public class UserUpdateServlet extends HttpServlet {
 	         user.setCognome(cognome);
 	         user.setEmail(email);
 	         user.setData_nascita(data);
+	         user.setNum_tel(num_telefono);
+	         user.setPaese_residenza(paese_residenza);
+	         user.setVia(via);
+	         user.setCitta(citta);
+	         user.setProvincia(provincia);
+	         user.setCarta(carta);
+
 	         dao.Alter(user.getUsername(), user);
-	         response.sendRedirect("Homepage.jsp");
+	         response.sendRedirect("UserPage.jsp");
 		
 	}
 

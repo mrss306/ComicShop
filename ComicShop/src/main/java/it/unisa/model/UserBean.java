@@ -11,8 +11,14 @@ public class UserBean {
     private String num_tel;
     private String paese_residenza;
     private LocalDate data_nascita;
+    private String via;
+    private String citta;
+    private String provincia;
+    private String carta;
     private  boolean valid;
     private  boolean admin;
+   
+
     
     public String getUsername() {
   		return username;
@@ -62,6 +68,31 @@ public class UserBean {
 	}
 	public void setData_nascita(LocalDate data_nascita) {
 		this.data_nascita = data_nascita;
+	}
+	
+	public String getVia() {
+		return via;
+	}
+	public void setVia(String via) {
+		this.via = via;
+	}
+	public String getCitta() {
+		return citta;
+	}
+	public void setCitta(String citta) {
+		this.citta = citta;
+	}
+	public String getProvincia() {
+		return provincia;
+	}
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+	public String getCarta() {
+		return carta;
+	}
+	public void setCarta(String carta) {
+		this.carta = carta;
 	}
 	public boolean isValid() {
 		return valid;

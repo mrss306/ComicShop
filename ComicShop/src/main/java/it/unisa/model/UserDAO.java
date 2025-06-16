@@ -62,7 +62,12 @@ public class UserDAO {
 				String num_tel= rs.getString("num_telefono");
 				String paese_residenza= rs.getString("paese_residenza");
 				LocalDate data_nascita=rs.getDate("data_nascita").toLocalDate();
+				String via= rs.getString("via");
+				String citta= rs.getString("citta");
+				String provincia= rs.getString("provincia");
+				String carta= rs.getString("carta");		
 				Boolean admin= rs.getBoolean("admin");
+				
 				System.out.println("Welcome " + firstName);
 				bean.setNome(firstName);
 				bean.setCognome(lastName);
@@ -70,6 +75,11 @@ public class UserDAO {
 				bean.setNum_tel(num_tel);
 				bean.setPaese_residenza(paese_residenza);
 				bean.setData_nascita(data_nascita);
+				bean.setVia(via);
+				bean.setCitta(citta);
+				bean.setProvincia(provincia);
+				bean.setCarta(carta);
+				
 				bean.setValid(true);
 				bean.setAdmin(admin);
 			}
@@ -118,7 +128,7 @@ public class UserDAO {
 	PreparedStatement preparedStatement = null;
 
 	String insertSQL = "INSERT INTO " + TABLE_NAME
-			+ " (username,nome,cognome, email, password,num_telefono,paese_residenza,data_nascita) VALUES (?,?,?,?,?,?,?,?)";
+			+ " (username,nome,cognome, email, password,num_telefono,paese_residenza,data_nascita,via,citta,provincia,carta) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	System.out.println("Query: " + insertSQL);
 	try {
@@ -132,6 +142,10 @@ public class UserDAO {
 		preparedStatement.setString(6, bean.getNum_tel());
 		preparedStatement.setString(7, bean.getPaese_residenza());
 		preparedStatement.setDate(8,  Date.valueOf(bean.getData_nascita()));
+		preparedStatement.setString(9, bean.getVia());
+		preparedStatement.setString(10, bean.getCitta());
+		preparedStatement.setString(11, bean.getProvincia());
+		preparedStatement.setString(12, bean.getCarta());
 		
 
 		preparedStatement.executeUpdate();
@@ -159,8 +173,9 @@ public class UserDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String alterStatement = "UPDATE `comicshop`.`utente` SET `nome` = ?, `cognome` = ?, "
-				+ "`email` = ?,  `data_nascita` = ? "
-				+ " WHERE (`username` = ? ) ";
+	            + "`email` = ?, `data_nascita` = ?, `num_telefono` = ?, `paese_residenza` = ?, "
+	            + "`via` = ?, `citta` = ?, `provincia` = ?, `carta` = ? "
+	            + "WHERE (`username` = ?)";
 
 		try {
 			connection = ds.getConnection();
@@ -169,7 +184,14 @@ public class UserDAO {
 			preparedStatement.setString(2, user.getCognome());
 			preparedStatement.setString(3, user.getEmail());
 			preparedStatement.setDate(4, Date.valueOf(user.getData_nascita()));
-			preparedStatement.setString(5, username);
+			preparedStatement.setString(5, user.getNum_tel());
+			preparedStatement.setString(6, user.getPaese_residenza());
+			preparedStatement.setString(7, user.getVia());
+			preparedStatement.setString(8, user.getCitta());
+			preparedStatement.setString(9, user.getProvincia());
+			preparedStatement.setString(10, user.getCarta());
+			
+			preparedStatement.setString(11, username);
 			System.out.print(preparedStatement);
 			
 			preparedStatement.executeUpdate();
