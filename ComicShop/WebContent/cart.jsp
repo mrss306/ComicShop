@@ -102,15 +102,16 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 	</form>
 	
 	<br>
-	
-	<form class="cart" action="product" method="get" style="display:inline;">
-  <input type="hidden" name="action" value="emptyC">
-  <button class="btn" type="submit">Svuota Carrello</button>
-</form>
 
-	
-	
-	</div>
+			<form class="cart" action="product" method="get"
+				style="display: inline;">
+				<input type="hidden" name="action" value="emptyC">
+				<button class="btn" type="submit">Svuota Carrello</button>
+			</form>
+
+
+
+		</div>
 	<%} %>
 	</div>
 	<%

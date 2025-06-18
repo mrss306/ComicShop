@@ -462,15 +462,6 @@ div.container {
 	transform: scale(1.25);
 }
 
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #c3e6cb;
-    border-radius: 5px;
-}
-
 @media screen and (max-width: 1140px) {
 	.grid-container {
 		grid-template-columns: repeat(3, 1fr);

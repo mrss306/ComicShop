@@ -56,6 +56,10 @@ static ProductDAO productDAO= new ProductDAO();
 				request.getRequestDispatcher("orderDetails.jsp").forward(request, response);
 			}
 			
+			else if (action.equalsIgnoreCase("modifica")) {
+				request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+			}
+			
 			
 
 		}

@@ -1,4 +1,3 @@
-<%@page import="org.apache.tomcat.jni.Address"%>
 <%@page import="it.unisa.model.*"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -52,9 +51,6 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 
 	<%
 	if (cart != null) {
-
-		LinkedList<String> indirizzi = (LinkedList<String>) session.getAttribute("indirizzi");
-		ArrayList<String> metodiPagamento = (ArrayList<String>) session.getAttribute("metodi");
 		UserBean user= (UserBean) session.getAttribute("currentSessionUser");
 	%>
 
@@ -152,6 +148,17 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 		<div class=wrapper>
 
 			<button class=btn type="submit" formaction="Ordine">Concludi ordine</button>
+		</div>
+	</form>
+	
+	
+	<br>
+	<br>
+	
+	<form>
+		<input type="hidden" name="action" value="modifica">
+		<div class=wrapper>
+			<button class="btn" type="submit" formaction="Ordine">Modifica Dati</button>
 		</div>
 	</form>
 
