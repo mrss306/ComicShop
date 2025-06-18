@@ -30,7 +30,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 			<span class="closebtn" 
 				onclick="this.parentElement.style.display='none';">&times;</span>
 				<span id="errorspan"></span>
-		</div>
+</div>
 	<%
 	Cart cart = (Cart) session.getAttribute("cart");
 	String itemID = request.getParameter("itemID");
@@ -55,97 +55,14 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 
 		LinkedList<String> indirizzi = (LinkedList<String>) session.getAttribute("indirizzi");
 		ArrayList<String> metodiPagamento = (ArrayList<String>) session.getAttribute("metodi");
+		UserBean user= (UserBean) session.getAttribute("currentSessionUser");
 	%>
 
 
 
 	<h1>Riepilogo dell'ordine</h1>
 
-
-	<div>
-		
-		
-		<div class="user-container">
-		
-			<ul>
-				<li>
-					<div class="user-payment">
-					<h3>Indirizzo di consegna</h3>
-						<select id="indirizzo" name="indirizzo" class=select-large>
-			<%
-			if (!indirizzi.isEmpty() ) {
-				for (String indirizzo : indirizzi) {
-			%>
-			<option value="<%=indirizzo%>">
-				<%=indirizzo%>
-			</option>
-			<%
-			}
-			} else {
-			%>
-			<option>Nessun indirizzo in archivio</option>
-			<%
-			}
-			%>
-				</select>
-		<br>
-			<div class="user-link">
-				<a href=AddressRegistration.jsp>Inserisci un nuovo indirizzo</a>
-			</div>
-		<br>
-				</div>
-			</li>
-		</ul>
-	</div>
-</div>
-
-
-<br>
-
-
-	<div>
-		
-		
-		<div class="user-container">
-			<ul>
-				<li>
-					<div class="user-payment">
-					<h3>Metodo di pagamento</h3>
-						<select id="metodoPagamento" name="pagamento" class=select-large>
-			<%
-			if (!metodiPagamento.isEmpty() ) {
-				for (String metodoPagamento : metodiPagamento) {
-			%>
-					<option value="<%=metodoPagamento%>"><%=metodoPagamento%>
-					</option>
-
-			<%
-			}
-			} else {
-			%>
-					<option>Nessun metodo di pagamento registrato</option>
-			<%
-			}
-			%>
-				</select>
-		<br>
-			<div class="user-link">
-				<a href=PaymentMethodRegistration.jsp>Inserisci un nuovo metodo di
-				pagamento</a>
-			</div>
-		<br>
-				</div>
-			</li>
-		</ul>
-	</div>
-</div>
-
-
-
-
-
-
-		<h3>Rivedi gli articoli</h3>
+<h3>Rivedi gli articoli</h3>
 		<div class=details>
 			<table >
 				<thead class=details>
@@ -190,6 +107,44 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 				</tfoot>
 			</table>
 		</div>
+		
+		<br>
+
+
+
+
+	<div>
+		
+		
+		<div class="user-container">
+		
+			<ul>
+				<li>
+					<div class="user-payment">
+						<h3>Indirizzo di consegna: <%=user.getVia() + " " + user.getCitta() + " " + user.getProvincia() + " " + user.getPaese_residenza()%></h3>
+					</div>
+				</li>
+			</ul>
+	</div>
+</div>
+
+
+<br>
+
+
+	<div>
+		
+		
+		<div class="user-container">
+			<ul>
+				<li>
+					<div class="user-payment">
+						<h3>Carta di Credito Numero: <%=user.getCarta()%></h3>
+					</div>
+				</li>
+			</ul>
+	</div>
+</div>
 		<br>
 	<form>
 		<input type=hidden name=action value=CompletaOrdine>

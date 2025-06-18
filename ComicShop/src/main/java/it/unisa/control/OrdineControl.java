@@ -31,14 +31,17 @@ static ProductDAO productDAO= new ProductDAO();
 
 		String action = request.getParameter("action");
 
-
-
 		if (action != null) {
 			if (action.equalsIgnoreCase("CompletaOrdine")) {
 				HttpSession session = request.getSession(true);
-				order.doSave((UserBean) session.getAttribute("currentSessionUser"), request.getParameter("indirizzo"),
-						request.getParameter("pagamento"), cart);
-				session.setAttribute("cart", new Cart());
+				UserBean user= (UserBean) session.getAttribute("currentSessionUser");
+
+				order.doSave((UserBean) session.getAttribute("currentSessionUser"), (user.getVia() + " " + user.getCitta() + " " + user.getProvincia() + " " + user.getPaese_residenza()),
+						user.getCarta(), cart);
+
+				session.setAttribute("cart", new Cart());				
+				session.setAttribute("ordineSuccesso", "Ordine effettuato correttamente");
+
 				response.sendRedirect("./Homepage.jsp");
 
 			}

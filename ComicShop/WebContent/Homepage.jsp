@@ -42,11 +42,24 @@ if (products == null) {
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="./style/style.css" rel="stylesheet" type="text/css">
 <title>Comicshop</title>
+<style>
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+}
+</style>
 
 </head>
 
 <body>
-
+	<% if (session.getAttribute("ordineSuccesso") != null) { %>
+    <div class="alert-success"><%= session.getAttribute("ordineSuccesso") %></div>
+    <% session.removeAttribute("ordineSuccesso"); %>
+<% } %>
 
 	<h2>Prodotti</h2>
 

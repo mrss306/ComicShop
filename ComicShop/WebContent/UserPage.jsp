@@ -12,8 +12,6 @@
 <link href="./style/style.css" rel="stylesheet" type="text/css">
 <body>
 	<%
-	LinkedList<String> indirizzi = (LinkedList<String>) session.getAttribute("indirizzi");
-	ArrayList<String> metodiPagamento = (ArrayList<String>) session.getAttribute("metodi");
 	UserBean user= (UserBean) session.getAttribute("currentSessionUser");
 	%>
 
@@ -103,6 +101,7 @@
 		</li>
 	</ul>
 	</form>
+	</div>
 
 	
 
