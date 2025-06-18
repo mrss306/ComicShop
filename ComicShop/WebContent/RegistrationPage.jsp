@@ -65,7 +65,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 			<input class=register type=text name=via placeholder="Via Domenico Catalano 27" required></label>
 			<br>
 			
-			<label>Citt&agrave
+			<label>Citt&agrave;
 			<input class=register type=text name=citta placeholder="Scafati" required></label>
 			<br>
 			

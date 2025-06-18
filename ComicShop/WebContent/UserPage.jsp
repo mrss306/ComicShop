@@ -72,7 +72,7 @@
 		
 		<li>
 		<div class="user">
-			<div class="user-label">Citt&agrave:</div>
+			<div class="user-label">Citt&agrave;:</div>
 				<input class="user" name=citta type="text" value="<%=user.getCitta()%>">
 			</div>
 		</li>

@@ -48,22 +48,22 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 	if (cart != null) {
 	%>
 	<h2>Carrello</h2><br>
-	<div class=cart>
+	<div class=details>
 	<table >
-	<thead class=cart>
+	<thead class=details>
 		<tr>
 			<th>Articolo:</th>
-			<th>Quantità:</th>
+			<th>Quantit&agrave;:</th>
 			<th>Prezzo:</th>
 			<th>Azioni:</th>
 		</tr>
-</thead>
+	</thead>
 		<%
 		List<ItemOrder> prodcart = cart.getProducts();
 		float prezzo_finale = 0;
 		for (ItemOrder beancart : prodcart) {
 		%>
-	<tbody class=cart>
+	<tbody class=details>
 		<tr>
 			<td><%=beancart.getNome()%></td>
 			<td><form>
