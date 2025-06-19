@@ -53,6 +53,18 @@ if (products == null) {
     <% session.removeAttribute("ordineSuccesso"); %>
 <% } %>
 
+	<% if (session.getAttribute("rimossoSuccesso") != null) { %>
+    <div class="alert-success"><%= session.getAttribute("rimossoSuccesso") %></div>
+    <% session.removeAttribute("rimossoSuccesso"); %>
+<% } %>
+
+	<% if (session.getAttribute("modificatoSuccesso") != null) { %>
+    <div class="alert-success"><%= session.getAttribute("modificatoSuccesso") %></div>
+    <% session.removeAttribute("modificatoSuccesso"); %>
+<% } %>
+
+
+
 	<h2>Prodotti</h2>
 
 

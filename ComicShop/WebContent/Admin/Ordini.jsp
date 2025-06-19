@@ -32,11 +32,6 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
     <%
     List<OrderBean> ordini = new LinkedList<OrderBean>();
     ordini = (LinkedList<OrderBean>) session.getAttribute("ordini");
-    /*
-    if (ordini != null) {
-        for (OrderBean ordine : ordini) {    
-        }
-        */
     %>
     <div class="details">
         <table>

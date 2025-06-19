@@ -187,28 +187,26 @@ public class ProductDAO implements ProductModel {
 	public synchronized void Alter(long id, ProductBean product) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String alterStatement = "UPDATE `comicshop`.`articolo` SET `id` = ?, `nome` = ?, "
-				+ "`prezzo` = ?, `saldo` = ?, `data_di_uscita` = ?, "
-				+ "`voto` = ?, `descrizione` = ?, `peso` = ?, `quantita` = ? `mostra`=?"
-				+ " WHERE (`id` = ?);";
+		String alterStatement = "UPDATE `comicshop`.`articolo` SET `nome` = ?, "
+	            + "`prezzo` = ?, `saldo` = ?, `data_di_uscita` = ?, "
+	            + "`voto` = ?, `descrizione` = ?, `peso` = ?, `quantita` = ? "
+	            + "WHERE (`id` = ?);";
 
-		try {
-			connection = ds.getConnection();
-			preparedStatement = connection.prepareStatement(alterStatement);
-			preparedStatement.setLong(1, product.getId());
-			preparedStatement.setString(2, product.getNome());
-			preparedStatement.setFloat(3, product.getPrezzo());
-			preparedStatement.setInt(4, product.getSaldo());
-			preparedStatement.setDate(5, Date.valueOf(product.getData_uscita()));
-			preparedStatement.setFloat(6, product.getVoto());
-			preparedStatement.setString(7, product.getDescrizione());
-			preparedStatement.setFloat(8, product.getPeso());
-			preparedStatement.setInt(9, product.getQuantità());
-			preparedStatement.setBoolean(10, product.isVisible());
-			preparedStatement.setLong(11, id);
-			preparedStatement.executeUpdate();
-			
-		} catch (SQLException e) {
+	    try {
+	        connection = ds.getConnection();
+	        preparedStatement = connection.prepareStatement(alterStatement);
+	        preparedStatement.setString(1, product.getNome());
+	        preparedStatement.setFloat(2, product.getPrezzo());
+	        preparedStatement.setInt(3, product.getSaldo());
+	        preparedStatement.setDate(4, Date.valueOf(product.getData_uscita()));
+	        preparedStatement.setFloat(5, product.getVoto());
+	        preparedStatement.setString(6, product.getDescrizione());
+	        preparedStatement.setFloat(7, product.getPeso());
+	        preparedStatement.setInt(8, product.getQuantità());
+	        preparedStatement.setLong(9, id);
+	        preparedStatement.executeUpdate();
+	        
+	    } catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
