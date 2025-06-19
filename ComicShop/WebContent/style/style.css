@@ -182,9 +182,17 @@ select {
 	background-color: #FFED86;
 }
 
+.details a:link, .details a:visited, .details a:hover, .details a:active
+	{
+	color: inherit;
+	text-decoration: none;
+}
 
+.details a:hover {
+	text-decoration: underline;
+}
 
-tbody.cart tr{
+tbody.cart tr {
 	background-color:#f0f0f5;
 	border: 1px solid black;
 	border-spacing:5px;
