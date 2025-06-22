@@ -88,8 +88,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 		<tfoot class=cart> 
 		
 		<tr>
-		<th  colspan=3>Totale: </th>
-		<td> <%=String.format("%.2f", prezzo_finale)  %> &euro;</td>
+		<th  colspan=3>Totale: <%=String.format("%.2f", prezzo_finale)  %> &euro;</th>
 		</tr>
 		</tfoot>
 	</table>

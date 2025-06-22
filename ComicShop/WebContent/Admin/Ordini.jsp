@@ -20,7 +20,6 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 <html>
 <head>
 <link href="./style/style.css" rel="stylesheet" type="text/css">
-<link href="./style/orderStyle.css" rel="stylesheet" type="text/css">
 
 <title>Archivio ordini admin</title>
 

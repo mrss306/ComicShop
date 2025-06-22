@@ -21,6 +21,8 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 <link href="./style/style.css" rel="stylesheet" type="text/css">
 <script src="./js/catalogo.js"></script>
 <title>Catalogo</title>
+
+        
 </head>
 <body>
 
@@ -30,6 +32,7 @@ Collection<?> products = (Collection<?>) session.getAttribute("products");
 
 <h2>Prodotti</h2>
 <div class="details">
+<div class="table-wrapper">
     <table>
         <thead class="details">
             <tr>
@@ -104,6 +107,7 @@ Collection<?> products = (Collection<?>) session.getAttribute("products");
             %>
         </tbody>
     </table>
+    </div>
 </div>
 
 </body>
