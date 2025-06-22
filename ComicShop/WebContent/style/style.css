@@ -277,9 +277,12 @@ h1, h2, h3, h4 {
   .grid-container {
     gap: 30px;
   }
+  .product-details-container {
+        flex-direction: column;
+    }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   table,
   thead,
   tbody,
@@ -315,6 +318,9 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  .product-details-container {
+        flex-direction: column;
+    }
 }
 .alert-success {
     background-color: #d4edda;
@@ -405,5 +411,25 @@ table.catalogue-table tbody tr:hover {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.product-details-container {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.product-image {
+    flex: 1;
+    text-align: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-info {
+    flex: 2;
 }
 
