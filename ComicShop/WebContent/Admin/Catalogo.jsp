@@ -23,16 +23,16 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 <title>Catalogo</title>
 </head>
 <body>
-<!-- Update -->
 
 <%
 Collection<?> products = (Collection<?>) session.getAttribute("products");
 %>
 
+<!-- Update -->
 <h2>Prodotti</h2>
-<div class="details">
-    <table>
-        <thead class="details">
+<div class="table-container">
+    <table class="catalogue-table">
+        <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -46,7 +46,7 @@ Collection<?> products = (Collection<?>) session.getAttribute("products");
                 <th>Azioni</th>
             </tr>
         </thead>
-        <tbody class="details">
+        <tbody>
             <%
             if (products != null && !products.isEmpty()) {
                 Iterator<?> it = products.iterator();
@@ -55,33 +55,33 @@ Collection<?> products = (Collection<?>) session.getAttribute("products");
             %>
             <tr>
                 <td>
-                    <input readonly class="catalogo-admin" type="number" value="<%=bean.getId()%>">
+                    <input readonly class="catalogue-input" type="number" value="<%=bean.getId()%>">
                 </td>
                 <td>
                     <form method="GET" action="ProductUpdate">
                         <input type="hidden" name="id" value="<%=bean.getId()%>">
-                        <input class="catalogo-admin" name="nome" type="text" value="<%=bean.getNome()%>">
+                        <input class="catalogue-input" name="nome" type="text" value="<%=bean.getNome()%>">
                 </td>
                 <td>
-                        <input class="catalogo-admin" name="prezzo" type="number" step="0.01" value="<%=bean.getPrezzo()%>">
+                        <input class="catalogue-input" name="prezzo" type="number" step="0.01" value="<%=bean.getPrezzo()%>">
                 </td>
                 <td>
-                        <input class="catalogo-admin" name="voto" type="number" step="0.1" value="<%=bean.getVoto()%>">
+                        <input class="catalogue-input" name="voto" type="number" step="0.1" value="<%=bean.getVoto()%>">
                 </td>
                 <td>
-                        <input class="catalogo-admin" name="quantita" type="number" value="<%=bean.getQuantità()%>">
+                        <input class="catalogue-input" name="quantita" type="number" value="<%=bean.getQuantità()%>">
                 </td>
                 <td>
-                        <input class="catalogo-admin" name="saldo" type="number" value="<%=bean.getSaldo()%>">
+                        <input class="catalogue-input" name="saldo" type="number" value="<%=bean.getSaldo()%>">
                 </td>
                 <td>
-                        <input class="catalogo-admin" name="data" type="date" value="<%=bean.getData_uscita()%>">
+                        <input class="catalogue-input" name="data" type="date" value="<%=bean.getData_uscita()%>">
                 </td>
                 <td>
-                        <input class="catalogo-admin" name="descrizione" type="text" value="<%=bean.getDescrizione()%>">
+                        <input class="catalogue-input" name="descrizione" type="text" value="<%=bean.getDescrizione()%>">
                 </td>
                 <td>
-                        <input class="catalogo-admin" name="peso" type="number" step="0.1" value="<%=bean.getPeso()%>">
+                        <input class="catalogue-input" name="peso" type="number" step="0.1" value="<%=bean.getPeso()%>">
                 </td>
                 <td>
                         <input class="btn-det" type="submit" value="Update">
@@ -105,100 +105,68 @@ Collection<?> products = (Collection<?>) session.getAttribute("products");
             %>
         </tbody>
     </table>
-    </div>
-
-
-
+</div>
 
 <!-- Insert -->
-
-
 <h2>Inserisci nuovo articolo</h2>
-	<div class=details>
-	<table>
-	
-		<thead class=details>
-		<tr>
-			<th>Id</th>
-			<th>Nome</th>
-			<th>Prezzo</th>
-			<th>Voto</th>
-			<th>Quantit&agrave;</th>
-			<th>Saldo</th>
-			<th>Data di uscita</th>
-			<th>Descrizione</th>
-			<th>Peso</th>
-			<th>Foto</th>
-			<th>Azioni</th>
-		</tr>
-		</thead>
-		
-		<tbody class=details>
-        	<tr>
-        		<td>
-				<form method="post" action="ProductInsert" enctype="multipart/form-data">
-            		<input class=details name="id" type="number" maxlength="20" required placeholder="Inserisci ID">
-        		</td>
-        		
-        		<td>
-            		<input class=details name="nome" type="text" maxlength="20" required placeholder="Inserisci nome">
-        		</td>
-        		
-        		<td>
-            		<input class=details name="prezzo" type="number" step="0.01" min="0" value="0" required>
-        		</td>
-        		
-        		<td>
-            		<input class=details name="voto" type="number" min="0" max="10" required>
-        		</td>
-        		
-        		<td>
-            		<input class=details name="quant" type="number" min="1" value="1" required>
-        		</td>
-        		
-        		<td>
-            		<input class=details name="saldo" type="number" value="0" required>
-        		</td>
-        		
-        		<td>
-            		 <input class=details name="data" type="date" required>
-        		</td>
-        		
-        		<td>
-            		<input class=details name="descrizione" type="text" maxlength="1000" 
-            		required placeholder="Inserisci descrizione">
-        		</td>
-        		
-        		<td>
-            		<input class=details name="peso" type="number" step="0.01" required>
-        		</td>
-        		
-        		<td>
-            		<input type="file" name="img" accept="image/*">
-        		</td>
-        		
-        		<td>
-        			<input class="btn-det" type="submit" value="Aggiungi">
-        			</form>
-				</td>
-				
-        </tbody>	
+<div class="table-container">
+    <table class="catalogue-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Prezzo</th>
+                <th>Voto</th>
+                <th>Quantit&agrave;</th>
+                <th>Saldo</th>
+                <th>Data di uscita</th>
+                <th>Descrizione</th>
+                <th>Peso</th>
+                <th>Foto</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form method="post" action="ProductInsert" enctype="multipart/form-data">
+                        <input class="catalogue-input" name="id" type="number" maxlength="20" required placeholder="ID">
+                </td>
+                <td>
+                        <input class="catalogue-input" name="nome" type="text" maxlength="20" required placeholder="Nome">
+                </td>
+                <td>
+                        <input class="catalogue-input" name="prezzo" type="number" step="0.01" min="0" value="0" required placeholder="0.00">
+                </td>
+                <td>
+                        <input class="catalogue-input" name="voto" type="number" min="0" max="10" required placeholder="0-10">
+                </td>
+                <td>
+                        <input class="catalogue-input" name="quant" type="number" min="1" value="1" required placeholder="1">
+                </td>
+                <td>
+                        <input class="catalogue-input" name="saldo" type="number" value="0" required placeholder="0">
+                </td>
+                <td>
+                        <input class="catalogue-input" name="data" type="date" required>
+                </td>
+                <td>
+                        <input class="catalogue-input" name="descrizione" type="text" maxlength="1000" required placeholder="Descrizione">
+                </td>
+                <td>
+                        <input class="catalogue-input" name="peso" type="number" step="0.01" required placeholder="0.00">
+                </td>
+                <td>
+                        <input class="catalogue-input" type="file" name="img" accept="image/*">
+                </td>
+                <td>
+                        <input class="btn-det" type="submit" value="Aggiungi">
+                    </form>
+                </td>
+            </tr>
+        </tbody>
     </table>
-</div>	
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 </body>
 <%@ include file="../fragments/footer.html"%>

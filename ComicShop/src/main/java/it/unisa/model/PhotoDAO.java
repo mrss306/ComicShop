@@ -64,6 +64,8 @@ public class PhotoDAO {
     
     public synchronized void doSave(PhotoBean foto) throws SQLException {
         Connection connection = null;
+
+        
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO foto (foto, id, articolo) VALUES (?, ?, ?)";
