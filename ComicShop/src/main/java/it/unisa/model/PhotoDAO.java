@@ -1,11 +1,13 @@
 package it.unisa.model;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Base64;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,6 +32,40 @@ public class PhotoDAO {
 			System.out.println("Error:" + e.getMessage());
 		}
 	}
+	
+	public synchronized void doSave(PhotoBean foto) throws SQLException {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+	    String insertSQL = "INSERT INTO foto (foto, id, articolo) VALUES (?, ?, ?)";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(insertSQL);
+			
+	        byte[] imageBytes = Base64.getDecoder().decode(foto.getBase64image());
+
+	        ByteArrayInputStream inputStream = new ByteArrayInputStream(imageBytes);
+			
+	        preparedStatement.setBlob(1, inputStream);
+	        preparedStatement.setInt(2, foto.getId());
+	        preparedStatement.setInt(3, foto.getArticolo());
+			
+			preparedStatement.executeUpdate();
+
+			connection.commit();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+	}
+
 
 	public synchronized List<PhotoBean> getPhotos(ProductBean product) {
 		List<PhotoBean> photos = new LinkedList<PhotoBean>();
@@ -67,8 +103,8 @@ public class PhotoDAO {
 				photos.add(bean);
 
 			}
-connection.close();
-rs.close();
+			connection.close();
+			rs.close();
 		}
 
 		catch (Exception ex) {

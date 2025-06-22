@@ -250,6 +250,13 @@ select {
   height: 30px;
 }
 
+.grid-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .grid-item img:hover {
   transform: scale(1.25);
 }

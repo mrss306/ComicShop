@@ -1,6 +1,8 @@
 package it.unisa.model;
 
-public class PhotoBean {
+import java.io.Serializable;
+
+public class PhotoBean implements Serializable{
 	private String base64image;
 	private int id;
 	private int articolo;
