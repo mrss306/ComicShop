@@ -45,12 +45,10 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
     %>
     
     <div class="product-details-container">
-        <!-- Sezione immagine prodotto -->
         <div class="product-image">
                 <img src="ImageServlet?id=<%=photos.get(0).getId()%>" alt="<%=product.getNome()%>" width="400"/>
         </div>
         
-        <!-- Sezione dettagli prodotto -->
         <div class="product-info">
             <table>
                 <thead class="details">
@@ -62,7 +60,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
                         <th>Voto</th>
                         <th>Descrizione</th>
                         <th>Peso</th>
-                        <th>Quantità</th>
+                        <th>Quantit&agrave;</th>
                     </tr>
                 </thead>
                 

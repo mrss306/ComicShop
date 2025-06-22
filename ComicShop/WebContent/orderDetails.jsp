@@ -69,7 +69,7 @@ LinkedList<ContentBean> products = (LinkedList<ContentBean>) session.getAttribut
 			<tr>
 				<th>Nome</th>
 				<th>Prezzo</th>
-				<th>Quantita acquistata</th>
+				<th>Quantit&agrave; acquistata</th>
 				<th>Iva</th>
 			</tr>
 		</thead>
