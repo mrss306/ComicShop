@@ -1,20 +1,21 @@
 package it.unisa.model;
 
+import java.io.InputStream;
 import java.io.Serializable;
 
 public class PhotoBean implements Serializable{
-	private String base64image;
+	
+	private static final long serialVersionUID = 1L;
+	private InputStream img;
 	private int id;
 	private int articolo;
-
 	
-
-	public String getBase64image() {
-		return base64image;
+	public InputStream getImg() {
+		return img;
 	}
 
-	public void setBase64image(String base64image) {
-		this.base64image = base64image;
+	public void setImg(InputStream img) {
+		this.img = img;
 	}
 
 	public int getId() {

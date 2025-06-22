@@ -5,7 +5,7 @@
 <%@page import="javax.imageio.ImageIO"%>
 <%@page import="javax.xml.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 
 <%
 if (session == null || session.getAttribute("currentSessionUser") == null) {
@@ -20,89 +20,77 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 }
 %>
 
-
-
-
 <%
 Collection<?> products = (Collection<?>) request.getAttribute("products");
 PhotoDAO fotodao = new PhotoDAO();
 if (products == null) {
-	response.sendRedirect("./product");
-	return;
+    response.sendRedirect("./product");
+    return;
 }
 %>
 
 <!DOCTYPE html>
 <html>
 <%@ page contentType="text/html; charset=UTF-8"
-	import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.Cart, it.unisa.model.ItemOrder"%>
+    import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.Cart, it.unisa.model.ItemOrder"%>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="./style/style.css" rel="stylesheet" type="text/css">
 <title>Comicshop</title>
-
-
 </head>
 
 <body>
-	<% if (session.getAttribute("ordineSuccesso") != null) { %>
+    <% if (session.getAttribute("ordineSuccesso") != null) { %>
     <div class="alert-success"><%= session.getAttribute("ordineSuccesso") %></div>
     <% session.removeAttribute("ordineSuccesso"); %>
-<% } %>
+    <% } %>
 
-	<% if (session.getAttribute("rimossoSuccesso") != null) { %>
+    <% if (session.getAttribute("rimossoSuccesso") != null) { %>
     <div class="alert-success"><%= session.getAttribute("rimossoSuccesso") %></div>
     <% session.removeAttribute("rimossoSuccesso"); %>
-<% } %>
+    <% } %>
 
-	<% if (session.getAttribute("modificatoSuccesso") != null) { %>
+    <% if (session.getAttribute("modificatoSuccesso") != null) { %>
     <div class="alert-success"><%= session.getAttribute("modificatoSuccesso") %></div>
     <% session.removeAttribute("modificatoSuccesso"); %>
-<% } %>
+    <% } %>
 
+    <h2>Prodotti</h2>
 
-
-	<h2>Prodotti</h2>
-
-
-
-
-	<div class="grid-container">
-	<%
-			if (products != null && products.size() != 0) {
-				Iterator<?> it = products.iterator();
-				while (it.hasNext()) {
-					ProductBean bean = (ProductBean) it.next();
-					LinkedList<PhotoBean> foto = (LinkedList<PhotoBean>) fotodao.getPhotos(bean);
-			%>
-		<div class="grid-item">
-			<div class="thumbnail">
-				<a href="product?action=read&id=<%=bean.getId()%>"> <img src="data:image/jpg;base64,<%=foto.get(0).getBase64image()%>" width=100% height=300/> </a>
-			</div>
-			<div class="item-description">
-				<h4><%=bean.getNome()%></h4>
-				<h5><%=String.format("%.2f", bean.getPrezzo())%> &euro;</h5>
-				<h6><a href="product?action=addC&id=<%=bean.getId()%>">Aggiungi al carrello</a></h6>
-			</div> 	
-		</div>
-
-					<%
-			}
-			} else {
-			%>
-			
-				<h3>Nessun prodotto disponibile</h3>
-			
-			<%
-			}
-			%>
-
-</div>
-
+    <div class="grid-container">
+    <%
+        if (products != null && products.size() != 0) {
+            Iterator<?> it = products.iterator();
+            while (it.hasNext()) {
+                ProductBean bean = (ProductBean) it.next();
+                LinkedList<PhotoBean> foto = (LinkedList<PhotoBean>) fotodao.getPhotos(bean);
+                if (foto != null && !foto.isEmpty()) {
+    %>
+        <div class="grid-item">
+            <div class="thumbnail">
+                <a href="product?action=read&id=<%=bean.getId()%>"> 
+                    <img src="ImageServlet?id=<%=foto.get(0).getId()%>" width="100%" height="300"/>
+                </a>
+            </div>
+            <div class="item-description">
+                <h4><%=bean.getNome()%></h4>
+                <h5><%=String.format("%.2f", bean.getPrezzo())%> &euro;</h5>
+                <h6><a href="product?action=addC&id=<%=bean.getId()%>">Aggiungi al carrello</a></h6>
+            </div>     
+        </div>
+    <%
+                }
+            }
+        } else {
+    %>
+        <h3>Nessun prodotto disponibile</h3>
+    <%
+        }
+    %>
+    </div>
 
 </body>
-
 <%@ include file="./fragments/footer.html"%>
 </html>
