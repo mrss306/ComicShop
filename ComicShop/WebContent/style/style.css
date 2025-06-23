@@ -11,11 +11,66 @@ div.catalogo,
 div.address,
 div.paymentMethod {
   max-width: 400px;
-  border: 1px solid black;
-  padding: 12px 20px;
+  border: none;
+  padding: 25px;
   margin: 0 auto;
-  background-color: #f0f0f5;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: 100%;
+}
+
+input.login[type="text"],
+input.login[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+input.login[type="text"]:focus,
+input.login[type="password"]:focus {
+  border-color: #a992d3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(169, 146, 211, 0.2);
+}
+
+input.register[type="text"],
+input.register[type="email"],
+input.register[type="password"],
+input.register[type="date"],
+input.register[type="tel"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+input.register[type="text"]:focus,
+input.register[type="email"]:focus,
+input.register[type="password"]:focus,
+input.register[type="date"]:focus,
+input.register[type="tel"]:focus {
+  border-color: #a992d3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(169, 146, 211, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
 }
 
 table {
@@ -167,21 +222,26 @@ select {
 
 .btn,
 .btn-center {
-  background-color: #a6a6c4;
+  background-color: #8a6dcc;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 12px 20px;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
-  margin: 8px 0;
+  margin: 10px 0;
   width: 100%;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn:hover,
 .btn-center:hover {
-  background-color: #a992d3;
+  background-color: #7a5cb8;
 }
 
 .flex {
@@ -198,9 +258,13 @@ select {
 }
 
 .error-login {
-  color: red;
-  font-size: 12px;
-  text-align: center;
+  color: #e74c3c;
+  background-color: #fdecea;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border-left: 4px solid #e74c3c;
+  font-size: 14px;
 }
 
 .select,
@@ -266,8 +330,6 @@ h1, h2, h3, h4 {
   clear: both;
 }
 
-/* MEDIA QUERIES */
-
 @media screen and (max-width: 992px) {
   .btn, .btn-center {
     font-size: 14px;
@@ -278,8 +340,8 @@ h1, h2, h3, h4 {
     gap: 30px;
   }
   .product-details-container {
-        flex-direction: column;
-    }
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -318,118 +380,133 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  
+  div.login, div.register {
+    padding: 20px 15px;
+    margin: 0 10px;
+  }
+  
+  input.login[type="text"],
+  input.login[type="password"],
+  input.register[type="text"],
+  input.register[type="email"],
+  input.register[type="password"],
+  input.register[type="date"],
+  input.register[type="tel"] {
+    padding: 10px 12px;
+  }
+  
   .product-details-container {
-        flex-direction: column;
-    }
+    flex-direction: column;
+  }
 }
+
 .alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #c3e6cb;
-    border-radius: 5px;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
 }
 
 .search-forms {
-        margin: 20px 0;
-    }
+  margin: 20px 0;
+}
 
-    .date-input, .username-input {
-        margin-bottom: 15px;
-        padding: 10px;
-        border-radius: 5px;
-    }
+.date-input, .username-input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
 
-    .date-input label, .username-input label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
+.date-input label, .username-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
 
-    .date-input input[type="date"], 
-    .username-input input[type="text"] {
-        padding: 5px;
-        margin-right: 10px;
-    }
-    
-    
+.date-input input[type="date"], 
+.username-input input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+}
+
 table.catalogue-table {
-    width: auto;
-    min-width: 100%;
-    table-layout: auto;
-    display: table;
+  width: auto;
+  min-width: 100%;
+  table-layout: auto;
+  display: table;
 }
 
 table.catalogue-table thead th,
 table.catalogue-table tbody td {
-    padding: 12px 15px;
-    white-space: nowrap;
+  padding: 12px 15px;
+  white-space: nowrap;
 }
 
 table.catalogue-table input[type="text"],
 table.catalogue-table input[type="number"],
 table.catalogue-table input[type="date"],
 table.catalogue-table input[type="file"] {
-    min-width: 120px;
-    width: 100%;
-    box-sizing: border-box;
+  min-width: 120px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 table.catalogue-table input[type="date"] {
-    min-width: 150px;
+  min-width: 150px;
 }
 
 table.catalogue-table input[type="file"] {
-    min-width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  min-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 table.catalogue-table thead tr {
-    height: 50px;
-    background: #FFED86;
-    font-size: 16px;
-    border: 1px solid black;
+  height: 50px;
+  background: #FFED86;
+  font-size: 16px;
+  border: 1px solid black;
 }
 
 table.catalogue-table tbody tr {
-    background-color: #f0f0f5;
-    border: 1px solid black;
-    text-align: center;
-    height: 50px;
+  background-color: #f0f0f5;
+  border: 1px solid black;
+  text-align: center;
+  height: 50px;
 }
 
 table.catalogue-table tbody tr:hover {
-    background-color: #a992d3;
+  background-color: #a992d3;
 }
 
 .table-container {
-    overflow-x: auto;
-    margin: 20px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .product-details-container {
-    display: flex;
-    gap: 2rem;
-    margin: 2rem;
+  display: flex;
+  gap: 2rem;
+  margin: 2rem;
 }
 
 .product-image {
-    flex: 1;
-    text-align: center;
+  flex: 1;
+  text-align: center;
 }
 
 .product-image img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .product-info {
-    flex: 2;
+  flex: 2;
 }
-

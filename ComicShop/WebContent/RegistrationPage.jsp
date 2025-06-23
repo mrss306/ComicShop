@@ -29,55 +29,55 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 			<span class="closebtn"
 				onclick="this.parentElement.style.display='none';">&times;</span>
 				<span id="errorspan"></span>
-		</div>
+	</div>
 		
 		<form action="UserControl" id="myform">
 		
-			<label>Username
+			<label for="usr">Username
 			<input class=register type=text name="usr" placeholder="slowturtle12" required></label> 
 			<br> 
 			
-			<label>Nome
+			<label for="nome">Nome
 			<input	class=register type=text name="nome" placeholder="mario" required></label>
 			<br> 
 			
-			<label>Cognome
+			<label for="cogn">Cognome
 			<input class=register type=text name="cogn" placeholder="rossi" required></label> 
 			<br> 
 			
-			<label>Email
+			<label for="email">Email
 			<input	class=register type=email name=email placeholder="someone@something.com"></label> 
 			<br> 
 			
-			<label>Password
+			<label for="pwd">Password
 			<input	class=register type=password name=pwd placeholder="supersecret" required></label> 
 			<br> 
 			
-			<label>Numero di Telefono
+			<label for="num_tel">Numero di Telefono
 			<input class=register type=text name=num_tel placeholder="3331725467" required></label> 
 			<br> 
 			
-			<label>Paese di residenza
+			<label for="paese">Paese di residenza
 			<input class=register type=text name=paese placeholder="Italia" required></label>
 			<br> 
 			
-			<label>Via Indirizzo di Spedizione
+			<label for="via">Via Indirizzo di Spedizione
 			<input class=register type=text name=via placeholder="Via Domenico Catalano 27" required></label>
 			<br>
 			
-			<label>Citt&agrave;
+			<label for="citta">Citt&agrave;
 			<input class=register type=text name=citta placeholder="Scafati" required></label>
 			<br>
 			
-			<label>Provincia
+			<label for="provincia">Provincia
 			<input class=register type=text name=provincia placeholder="SA" required></label>
 			<br>
 			
-			<label>Numero Carta di Credito
+			<label for="carta">Numero Carta di Credito
 			<input class=register type=text name=carta placeholder="1234123412341234" required></label>
 			<br>     
 			
-			<label>Data di nascita
+			<label for="data">Data di nascita
 			<input class=register type=date name=data required></label><br> 
 			
 			
