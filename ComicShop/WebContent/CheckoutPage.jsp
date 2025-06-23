@@ -20,16 +20,9 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 <head>
 <meta charset="UTF-8">
 <link href="./style/style.css" rel="stylesheet" type="text/css">
-<link href="./style/error.css" rel="stylesheet" type="text/css">
-<script src="./js/checkout.js"></script>
 <title>Checkout</title>
 </head>
 <body>
-<div class="alert">
-			<span class="closebtn" 
-				onclick="this.parentElement.style.display='none';">&times;</span>
-				<span id="errorspan"></span>
-</div>
 	<%
 	Cart cart = (Cart) session.getAttribute("cart");
 	String itemID = request.getParameter("itemID");

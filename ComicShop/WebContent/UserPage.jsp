@@ -10,6 +10,8 @@
 <title>il mio account</title>
 </head>
 <link href="./style/style.css" rel="stylesheet" type="text/css">
+<link href="./style/error.css" rel="stylesheet" type="text/css">
+<script src="./js/user.js"></script>
 <body>
 	<%
 	UserBean user= (UserBean) session.getAttribute("currentSessionUser");
@@ -18,12 +20,19 @@
 <br>
 
 <div class="user-container">
+
+<div class="alert">
+	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+	<span id="errorspan"></span>
+</div>
+
 <form action="UserUpdate">
 	<ul>
 		<li>
 			<div class="user">
-			<h3>I miei dati</h3>
+			<h3>I miei dati</h3>			
 				<div class="user-label">Nome:</div>
+				<label for="nome"></label>
 				<input class="user" name=nome type="text" value="<%=user.getNome()%>">
 			</div>
 		</li>
@@ -31,6 +40,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Cognome:</div>
+			<label for="cognome"></label>
 				<input class="user" name=cognome type="text" value="<%=user.getCognome()%>">
 			</div>
 		</li>
@@ -38,6 +48,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Email:</div>
+			<label for="email"></label>
 				<input class="user" name=email  type="email" value="<%=user.getEmail()%>">
 			</div>
 		</li>
@@ -45,6 +56,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Data di nascita:</div>
+			<label for="data"></label>
 				<input class="user" name=data type="date" value=<%=user.getData_nascita()%>>
 			</div>
 		</li>
@@ -52,6 +64,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Numero di Telefono:</div>
+				<label for="num_telefono"></label>
 				<input class="user" name=num_telefono type="text" value="<%=user.getNum_tel()%>">
 			</div>
 		</li>
@@ -59,6 +72,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Paese di Residenza:</div>
+			<label for="paese_residenza"></label>
 				<input class="user" name=paese_residenza type="text" value="<%=user.getPaese_residenza()%>">
 			</div>
 		</li>
@@ -66,6 +80,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Via Indirizzo di Spedizione:</div>
+			<label for="via"></label>
 				<input class="user" name=via type="text" value="<%=user.getVia()%>">
 			</div>
 		</li>
@@ -73,6 +88,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Citt&agrave;:</div>
+			<label for="citta"></label>
 				<input class="user" name=citta type="text" value="<%=user.getCitta()%>">
 			</div>
 		</li>
@@ -80,6 +96,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Provincia:</div>
+			<label for="provincia"></label>
 				<input class="user" name=provincia type="text" value="<%=user.getProvincia()%>">
 			</div>
 		</li>
@@ -87,6 +104,7 @@
 		<li>
 		<div class="user">
 			<div class="user-label">Carta di Credito:</div>
+			<label for="carta"></label>
 				<input class="user" name=carta type="text" value="<%=user.getCarta()%>">
 			</div>
 		</li>
@@ -96,7 +114,7 @@
 		<div class="user">
 			<div class="user-label"></div>
 			<input type="hidden" name=action value=update>
-				<input type="submit" value=Salva>
+				<input class="btn" type="submit" value=Salva>
 			</div>
 		</li>
 	</ul>

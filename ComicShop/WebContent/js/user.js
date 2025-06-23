@@ -1,17 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('myform');
+    const form = document.querySelector('form[action="UserUpdate"]');
     const errorSpan = document.getElementById('errorspan');
     const alertDiv = document.querySelector('.alert');
     const closeBtn = document.querySelector('.closebtn');
 
     const patterns = {
-        usr: /^[a-zA-Z0-9]{2,30}$/,
         nome: /^[a-zA-Zàèéìòù]{1,45}$/,
-        cogn: /^[a-zA-Zàèéìòù]{1,45}$/,
+        cognome: /^[a-zA-Zàèéìòù]{1,45}$/,
         email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-        pwd: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/,
-        num_tel: /^[0-9]{10,15}$/,
-        paese: /^.{1,45}$/,
+        num_telefono: /^[0-9]{10,15}$/,
+        paese_residenza: /^.{1,45}$/,
         via: /^[a-zA-Z0-9àèéìòù\s.,-]{1,100}$/,
         citta: /^[a-zA-Zàèéìòù\s]{1,45}$/,
         provincia: /^[A-Z]{2}$/,
@@ -19,18 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const errorMessages = {
-        usr: "Username non valido (2-30 caratteri alfanumerici)",
         nome: "Nome non valido (max 45 lettere, senza spazi)",
-        cogn: "Cognome non valido (max 45 lettere, senza spazi)",
+        cognome: "Cognome non valido (max 45 lettere, senza spazi)",
         email: "Email non valida (formato: qualcosa@qualcosaltro.qualcosatra2e6caratteri)",
-        pwd: "Password troppo debole (minimo 5 caratteri, 1 maiuscola, 1 minuscola, 1 numero)",
-        num_tel: "Numero di telefono non valido (10-15 cifre)",
-        paese: "Paese non valido (max 45 caratteri)",
+        num_telefono: "Numero di telefono non valido (10-15 cifre)",
+        paese_residenza: "Paese non valido (max 45 caratteri)",
         via: "Indirizzo non valido (max 100 caratteri, lettere e numeri)",
         citta: "Città non valida (max 45 caratteri)",
         provincia: "Provincia non valida (es. SA)",
         carta: "Carta di credito non valida (formato: 1234-1234-1234-1234)"
     };
+
+    alertDiv.style.display = 'none';
 
     closeBtn.addEventListener('click', function() {
         hideError();
@@ -47,14 +45,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     form.querySelectorAll('input').forEach(input => {
-        input.addEventListener('change', function() {
-            validateField(this);
-        });
-        
-        if (['carta', 'num_tel', 'email', 'usr'].includes(input.name)) {
-            input.addEventListener('input', function() {
+        if(input.type !== 'submit' && input.type !== 'hidden') {
+            input.addEventListener('change', function() {
                 validateField(this);
             });
+            
+            if (['carta', 'num_telefono', 'email'].includes(input.name)) {
+                input.addEventListener('input', function() {
+                    validateField(this);
+                });
+            }
         }
     });
 
@@ -63,9 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let firstErrorField = null;
 
         form.querySelectorAll('input').forEach(input => {
-            if (!validateField(input) && isValid) {
-                isValid = false;
-                firstErrorField = input;
+            if(input.type !== 'submit' && input.type !== 'hidden') {
+                if (!validateField(input) && isValid) {
+                    isValid = false;
+                    firstErrorField = input;
+                }
             }
         });
 
