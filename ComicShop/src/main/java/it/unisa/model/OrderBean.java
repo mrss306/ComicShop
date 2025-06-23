@@ -3,7 +3,7 @@ package it.unisa.model;
 import java.time.LocalDate;
 
 public class OrderBean {
-	private long id;
+private long id;
 private long num_ordine;
 private float costo_totale;
 private String indirizzo_spedizione;

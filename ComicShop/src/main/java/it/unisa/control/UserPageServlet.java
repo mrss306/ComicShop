@@ -29,8 +29,6 @@ public class UserPageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		HttpSession session = request.getSession();
-//		UserBean user = (UserBean) session.getAttribute("currentSessionUser");		
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/UserPage.jsp");
 		dispatcher.include(request, response);

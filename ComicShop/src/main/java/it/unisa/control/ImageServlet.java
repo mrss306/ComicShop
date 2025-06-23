@@ -27,17 +27,14 @@ public class ImageServlet extends HttpServlet {
         try {
             int photoId = Integer.parseInt(id);
             PhotoDAO photoDAO = new PhotoDAO();
-            PhotoBean photo = photoDAO.getPhotoById(photoId); // Dovrai implementare questo metodo nel DAO
-            
+            PhotoBean photo = photoDAO.getPhotoById(photoId);            
             if (photo == null || photo.getImg() == null) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND, "Immagine non trovata");
                 return;
             }
             
-            // Imposta il content type appropriato (puoi modificarlo se usi altri formati)
             response.setContentType("image/jpeg");
             
-            // Copia lo stream dell'immagine nella response
             try (InputStream in = photo.getImg();
                  OutputStream out = response.getOutputStream()) {
                 

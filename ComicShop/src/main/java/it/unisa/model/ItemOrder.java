@@ -1,19 +1,6 @@
 package it.unisa.model;
 
 
-
-/** Associates a catalog Item with a specific order by
- *  keeping track of the number ordered and the total price.
- *  Also provides some convenience methods to get at the
- *  CatalogItem data without extracting the CatalogItem
- *  separately.
- *  <P>
- *  Taken from Core Servlets and JavaServer Pages 2nd Edition
- *  from Prentice Hall and Sun Microsystems Press,
- *  http://www.coreservlets.com/.
- *  &copy; 2003 Marty Hall; may be freely used or adapted.
- */
-
 public class ItemOrder {
   private ProductBean item;
   private int numItems;
