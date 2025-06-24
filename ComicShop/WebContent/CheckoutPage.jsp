@@ -59,7 +59,6 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 						<th>Articolo:</th>
 						<th>Quantit&agrave;</th>
 						<th>Prezzo:</th>
-						<th>Azioni:</th>
 					</tr>
 				</thead>
 
@@ -75,8 +74,6 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 						<td><%=beancart.getNumItems()%></td>
 						<td><%=String.format("%.2f", beancart.getTotalCost())%>
 							&euro;</td>
-						<td><a href="product?action=deleteC&id=<%=beancart.getId()%>">Elimina
-								dal carrello</a></td>
 					</tr>
 				</tbody>
 				<%

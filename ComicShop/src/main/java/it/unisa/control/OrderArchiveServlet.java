@@ -45,9 +45,13 @@ public class OrderArchiveServlet extends HttpServlet {
 					LocalDate.parse(request.getParameter("enddate")));
 		else if(request.getParameter("username")!= null)
 			ordini = orderDAO.getAllOrders(request.getParameter("username"));
+		else if (request.getParameter("resetta")!= null)
+			ordini=orderDAO.getAllOrders();
 		else
 			ordini=orderDAO.getAllOrders();
+		
 		session.setAttribute("ordini", ordini);
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Admin/Ordini.jsp");
 		dispatcher.include(request, response);
 	}

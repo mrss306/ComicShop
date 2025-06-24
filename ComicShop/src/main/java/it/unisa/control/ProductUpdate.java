@@ -3,6 +3,7 @@ package it.unisa.control;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -54,6 +55,7 @@ public class ProductUpdate extends HttpServlet {
          
          session.setAttribute("modificatoSuccesso", "Articolo modificato correttamente");
          response.sendRedirect("Homepage.jsp");
+         
 		
 	}
 

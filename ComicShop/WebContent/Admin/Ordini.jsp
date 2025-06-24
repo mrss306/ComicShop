@@ -70,11 +70,12 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
     %>
     
     <div class="search-forms">
+    
         <div class="date-input">
             <form action="OrderArchive">
                 <label for="startdate">Cerca ordini per range di date:</label><br>
-                <input type="date" id="startdate" name="startdate"> 
-                <input type="date" id="enddate" name="enddate"> 
+                <input type="date" id="startdate" name="startdate" required> 
+                <input type="date" id="enddate" name="enddate" required> 
                 <input type="submit" value="Cerca">
             </form>
         </div>
@@ -82,8 +83,16 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
         <div class="username-input">
             <form action="OrderArchive">
                 <label for="username">Cerca ordini per utente:</label><br>
-                <input type="text" id="username" name="username" placeholder="Inserisci username"> 
+                <input type="text" id="username" name="username" placeholder="Inserisci username" required> 
                 <input type="submit" value="Cerca">
+            </form>
+        </div>
+        
+        <div class="username-input">
+            <form action="OrderArchive">
+                <label for="resetta">Resetta Ricerca:&nbsp;&nbsp;
+                <input type="submit" id="resetta" name="resetta" value="Resetta">
+                </label>
             </form>
         </div>
     </div>
