@@ -19,7 +19,10 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 <html>
 <head>
 <link href="./style/style.css" rel="stylesheet" type="text/css">
-<script src="./js/catalogo.js"></script>
+<link href="./style/error.css" rel="stylesheet" type="text/css">
+<script src="./js/update.js"></script>
+<script src="./js/insert.js"></script>
+
 <title>Catalogo</title>
 </head>
 <body>
@@ -28,144 +31,179 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 Collection<?> products = (Collection<?>) session.getAttribute("products");
 %>
 
-<!-- Update -->
-<h2>Prodotti</h2>
-<div class="table-container">
-    <table class="catalogue-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Prezzo</th>
-                <th>Voto</th>
-                <th>Quantit&agrave;</th>
-                <th>Saldo</th>
-                <th>Data di uscita</th>
-                <th>Descrizione</th>
-                <th>Peso</th>
-                <th>Azioni</th>
-            </tr>
-        </thead>
-        <tbody>
-            <%
-            if (products != null && !products.isEmpty()) {
-                Iterator<?> it = products.iterator();
-                while (it.hasNext()) {
-                    ProductBean bean = (ProductBean) it.next();
-            %>
-            <tr>
-                <td>
-                    <input readonly class="catalogue-input" type="number" value="<%=bean.getId()%>">
-                </td>
-                <td>
-                    <form method="GET" action="ProductUpdate">
-                        <input type="hidden" name="id" value="<%=bean.getId()%>">
-                        <input class="catalogue-input" name="nome" type="text" value="<%=bean.getNome()%>">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="prezzo" type="number" step="0.01" value="<%=bean.getPrezzo()%>">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="voto" type="number" step="0.1" value="<%=bean.getVoto()%>">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="quantita" type="number" value="<%=bean.getQuantità()%>">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="saldo" type="number" value="<%=bean.getSaldo()%>">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="data" type="date" value="<%=bean.getData_uscita()%>">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="descrizione" type="text" value="<%=bean.getDescrizione()%>">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="peso" type="number" step="0.1" value="<%=bean.getPeso()%>">
-                </td>
-                <td>
-                        <input class="btn-det" type="submit" value="Update">
-                    </form>
-                    
-                    <form action="ProductDelete" method="GET" style="display:inline;">
-                        <input type="hidden" name="deletedid" value="<%=bean.getId()%>">
-                        <button class="btn-det" type="submit">Elimina Prodotto</button>
-                    </form>
-                </td>
-            </tr>
-            <%
-                }
-            } else {
-            %>
-            <tr>
-                <td colspan="10">Nessun prodotto disponibile</td>
-            </tr>
-            <%
-            }
-            %>
-        </tbody>
-    </table>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <span id="errorspan"></span>
 </div>
 
+<!-- Update -->
+<h2>Prodotti</h2>
+<%
+if (products != null && !products.isEmpty()) {
+    Iterator<?> it = products.iterator();
+    while (it.hasNext()) {
+        ProductBean bean = (ProductBean) it.next();
+%>
+<div class="product-card">
+    <form method="GET" action="ProductUpdate" class="product-form">
+        <input type="hidden" name="id" value="<%=bean.getId()%>">
+        
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input readonly class="catalogue-input" type="number" value="<%=bean.getId()%>">
+        </div>
+        
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="catalogue-input" name="nome" type="text" value="<%=bean.getNome()%>" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="prezzo">Prezzo</label>
+            <input class="catalogue-input" name="prezzo" type="number" step="0.01" value="<%=bean.getPrezzo()%>" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="voto">Voto</label>
+            <input class="catalogue-input" name="voto" type="number" step="0.1" value="<%=bean.getVoto()%>" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="quantita">Quantit&agrave;</label>
+            <input class="catalogue-input" name="quantita" type="number" value="<%=bean.getQuantità()%>" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="saldo">Saldo</label>
+            <input class="catalogue-input" name="saldo" type="number" value="<%=bean.getSaldo()%>" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="data">Data di uscita</label>
+            <input class="catalogue-input" name="data" type="date" value="<%=bean.getData_uscita()%>" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="descrizione">Descrizione</label>
+            <input class="catalogue-input" name="descrizione" type="text" value="<%=bean.getDescrizione()%>" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="peso">Peso</label>
+            <input class="catalogue-input" name="peso" type="number" step="0.1" value="<%=bean.getPeso()%>" required>
+        </div>
+        
+        <div class="form-actions">
+            <input class="btn-det" type="submit" value="Update">
+        </div>
+    </form>
+</div>
+<%
+    }
+} else {
+%>
+<div class="product-card">
+    Nessun prodotto disponibile
+</div>
+<%
+}
+%>
+
 <!-- Insert -->
-<h2>Inserisci nuovo articolo</h2>
-<div class="table-container">
-    <table class="catalogue-table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Prezzo</th>
-                <th>Voto</th>
-                <th>Quantit&agrave;</th>
-                <th>Saldo</th>
-                <th>Data di uscita</th>
-                <th>Descrizione</th>
-                <th>Peso</th>
-                <th>Foto</th>
-                <th>Azioni</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <form method="post" action="ProductInsert" enctype="multipart/form-data">
-                        <input class="catalogue-input" name="id" type="number" maxlength="20" required placeholder="ID">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="nome" type="text" maxlength="20" required placeholder="Nome">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="prezzo" type="number" step="0.01" min="0" value="0" required placeholder="0.00">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="voto" type="number" min="0" max="10" required placeholder="0-10">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="quant" type="number" min="1" value="1" required placeholder="1">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="saldo" type="number" value="0" required placeholder="0">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="data" type="date" required>
-                </td>
-                <td>
-                        <input class="catalogue-input" name="descrizione" type="text" maxlength="1000" required placeholder="Descrizione">
-                </td>
-                <td>
-                        <input class="catalogue-input" name="peso" type="number" step="0.01" required placeholder="0.00">
-                </td>
-                <td>
-                        <input class="catalogue-input" type="file" name="img" accept="image/*">
-                </td>
-                <td>
-                        <input class="btn-det" type="submit" value="Aggiungi">
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<h2>Inserisci Un Nuovo Articolo</h2>
+<div class="insert-form">
+    <form method="post" action="ProductInsert" enctype="multipart/form-data" class="product-form">
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input class="catalogue-input" name="id" type="number" maxlength="20" required placeholder="ID">
+        </div>
+        
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="catalogue-input" name="nome" type="text" maxlength="20" required placeholder="Nome">
+        </div>
+        
+        <div class="form-group">
+            <label for="prezzo">Prezzo</label>
+            <input class="catalogue-input" name="prezzo" type="number" step="0.01" min="0" value="0" required placeholder="0.00">
+        </div>
+        
+        <div class="form-group">
+            <label for="voto">Voto</label>
+            <input class="catalogue-input" name="voto" type="number" step="0.1" required placeholder="0-10">
+        </div>
+        
+        <div class="form-group">
+            <label for="quant">Quantit&agrave;</label>
+            <input class="catalogue-input" name="quant" type="number" min="1" value="1" required placeholder="1">
+        </div>
+        
+        <div class="form-group">
+            <label for="saldo">Saldo</label>
+            <input class="catalogue-input" name="saldo" type="number" value="0" required placeholder="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="data">Data di uscita</label>
+            <input class="catalogue-input" name="data" type="date" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="descrizione">Descrizione</label>
+            <input class="catalogue-input" name="descrizione" type="text" maxlength="1000" required placeholder="Descrizione">
+        </div>
+        
+        <div class="form-group">
+            <label for="peso">Peso</label>
+            <input class="catalogue-input" name="peso" type="number" step="0.01" required placeholder="0.00">
+        </div>
+        
+        <div class="form-group">
+            <label for="img">Foto</label>
+            <input class="catalogue-input" type="file" name="img" accept="image/*">
+        </div>
+        
+        <div class="form-actions">
+            <input class="btn-det" type="submit" value="Aggiungi">
+        </div>
+    </form>
+</div>
+
+<!-- Delete -->
+<h2>Elimina Prodotti</h2>
+<div class="delete-section">
+<%
+if (products != null && !products.isEmpty()) {
+    Iterator<?> it = products.iterator();
+    while (it.hasNext()) {
+        ProductBean bean = (ProductBean) it.next();
+%>
+    <div class="delete-item">
+        <form action="ProductDelete" method="GET" class="product-form">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input readonly class="catalogue-input" type="number" value="<%=bean.getId()%>">
+            </div>
+            
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input readonly class="catalogue-input" type="text" value="<%=bean.getNome()%>">
+            </div>
+            
+            <input type="hidden" name="deletedid" value="<%=bean.getId()%>">
+            <button class="btn-det delete-btn" type="submit">Elimina</button>
+        </form>
+    </div>
+<%
+    }
+} else {
+%>
+    <div class="delete-item">
+        Nessun prodotto disponibile
+    </div>
+<%
+}
+%>
 </div>
 
 </body>
