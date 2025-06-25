@@ -322,7 +322,7 @@ select {
 }
 
 .grid-item img:hover {
-  transform: scale(1.25);
+  opacity: 0.95;
 }
 
 h1, h2, h3, h4 {
@@ -536,6 +536,16 @@ table.catalogue-table tbody tr:hover {
     cursor: pointer;
     font-weight: bold;
 }
+
+.item-description a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.item-description a:hover {
+  text-decoration: underline;
+}
+
 
 @media screen and (max-width: 992px) {
   .btn, .btn-center {
