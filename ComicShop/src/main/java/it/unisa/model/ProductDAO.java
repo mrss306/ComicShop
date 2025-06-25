@@ -224,5 +224,28 @@ public class ProductDAO implements ProductModel {
 			}
 	}
 	}
+	
+	public boolean checkIdExists(int id) throws SQLException {
+	    Connection connection = null;
+	    PreparedStatement preparedStatement = null;
+	    ResultSet rs = null;
+	    
+	    try {
+	        connection = ds.getConnection();
+	        preparedStatement = connection.prepareStatement("SELECT id FROM " + TABLE_NAME + " WHERE id = ?");
+	        preparedStatement.setInt(1, id);
+	        rs = preparedStatement.executeQuery();
+	        return rs.next(); // Restituisce true se esiste almeno una riga
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            if (preparedStatement != null) preparedStatement.close();
+	            if (connection != null) connection.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	}
+
 
 }

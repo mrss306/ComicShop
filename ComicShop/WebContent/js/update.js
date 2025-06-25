@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const patterns = {
         nome: /^.+$/, // Qualsiasi carattere (almeno uno)
         prezzo: /^\d+(\.\d{1,2})?$/, // Numero con max 2 decimali
-        voto: /^(10(\.0+)?|([0-9](\.[0-9]+))?)$/, // Numero 0-10
+        voto: /^(10|[0-9])$/, // Numero 0-10
         quantita: /^[1-9]\d*$/, // Numero intero positivo
         saldo: /^\d+(\.\d+)?$/, // Numero positivo (intero o decimale)
         descrizione: /^.+$/, // Qualsiasi carattere (almeno uno)

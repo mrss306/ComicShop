@@ -1,6 +1,12 @@
 package it.unisa.model;
 
-public class ContentBean {
+import java.io.Serializable;
+
+public class ContentBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int iva;
 	private float prezzo_acquisto;
 	 private String nome_art;

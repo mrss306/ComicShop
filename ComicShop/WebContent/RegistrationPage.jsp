@@ -20,6 +20,8 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 <link href="./style/style.css" rel="stylesheet" type="text/css">
 <link href="./style/error.css" rel="stylesheet" type="text/css">
 <script src="./js/registration.js"></script>
+<script src="./js/username-checker.js"></script>
+
 </head>
 
 <body>

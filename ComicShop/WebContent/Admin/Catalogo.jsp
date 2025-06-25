@@ -22,6 +22,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 <link href="./style/error.css" rel="stylesheet" type="text/css">
 <script src="./js/update.js"></script>
 <script src="./js/insert.js"></script>
+<script src="./js/product-id-checker.js"></script>
 
 <title>Catalogo</title>
 </head>
@@ -60,7 +61,7 @@ Collection<?> products = (Collection<?>) session.getAttribute("products");
         
         <div class="form-group">
             <label for="voto">Voto</label>
-            <input class="catalogue-input" name="voto" type="number" step="0.1" required placeholder="0-10">
+            <input class="catalogue-input" name="voto" type="number" required placeholder="0-10">
         </div>
         
         <div class="form-group">
@@ -134,7 +135,7 @@ if (products != null && !products.isEmpty()) {
         
         <div class="form-group">
             <label for="voto">Voto</label>
-            <input class="catalogue-input" name="voto" type="number" step="0.1" value="<%=bean.getVoto()%>" required>
+            <input class="catalogue-input" name="voto" type="number" value="<%=bean.getVoto()%>" required>
         </div>
         
         <div class="form-group">

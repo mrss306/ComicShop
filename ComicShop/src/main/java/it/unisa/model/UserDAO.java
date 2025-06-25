@@ -215,6 +215,31 @@ public class UserDAO {
 	}
 	}
 	
+	public boolean checkUsername(String username) {
+	    Connection connection = null;
+	    PreparedStatement ps = null;
+	    ResultSet rs = null;
+	    
+	    try {
+	        connection = ds.getConnection();
+	        ps = connection.prepareStatement("SELECT username FROM utente WHERE username = ?");
+	        ps.setString(1, username);
+	        rs = ps.executeQuery();
+	        return rs.next(); // true se esiste, false altrimenti
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            if (ps != null) ps.close();
+	            if (connection != null) connection.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	}
+	
 	
 	
 }

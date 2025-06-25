@@ -1,8 +1,13 @@
 package it.unisa.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class UserBean {
+public class UserBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String username;
     private String nome;
     private String cognome;

@@ -34,6 +34,20 @@ public class UserControl extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		// Controllo se è una richiesta di verifica username
+	    String checkUsername = request.getParameter("checkUsername");
+	    if(checkUsername != null) {
+	        boolean exists = UserDAO.checkUsername(checkUsername);
+	        
+	        response.setContentType("application/json");
+	        response.setCharacterEncoding("UTF-8");
+	        response.getWriter().write("{\"exists\": " + exists + "}");
+	        return;
+	    }
+		
+		
 
 		String username = request.getParameter("usr");
 		String nome = request.getParameter("nome");

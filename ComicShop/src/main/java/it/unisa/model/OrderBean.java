@@ -1,8 +1,13 @@
 package it.unisa.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class OrderBean {
+public class OrderBean implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 private long id;
 private long num_ordine;
 private float costo_totale;

@@ -29,7 +29,24 @@ public class ProductInsert extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        
+        String checkId = request.getParameter("checkId");
+        if(checkId != null) {
+            boolean exists = false;
+            try {
+                exists = model.checkIdExists(Integer.parseInt(checkId));
+            } catch (NumberFormatException | SQLException e) {
+                e.printStackTrace();
+            }
+            
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write("{\"exists\": " + exists + "}");
+            return;
+        }
+        
         doPost(request, response);
     }
 
