@@ -159,8 +159,8 @@ if (products != null && !products.isEmpty()) {
         </div>
         
         <div class="form-group">
-            <label for="peso">Peso</label>
-            <input class="catalogue-input" name="peso" type="number" step="0.1" value="<%=bean.getPeso()%>" required>
+            <label for="peso">Peso in kg</label>
+            <input class="catalogue-input" name="peso" type="number" step="0.01" value="<%=bean.getPeso()%>" required>
         </div>
         
         <div class="form-actions">
