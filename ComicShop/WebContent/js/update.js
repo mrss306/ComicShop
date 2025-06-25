@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         firstErrorField.focus();
                         setTimeout(() => {
                             if (alertDiv) alertDiv.style.display = 'none';
-                        }, 10000);
+                        }, 30000);
                     }
                 }
             });
