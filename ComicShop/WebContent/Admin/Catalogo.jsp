@@ -31,13 +31,82 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 Collection<?> products = (Collection<?>) session.getAttribute("products");
 %>
 
+
+
+
+
+<!-- Insert -->
+<h2>Inserisci Un Nuovo Articolo</h2>
 <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <span id="errorspan"></span>
 </div>
+<div class="insert-form">
+    <form method="post" action="ProductInsert" enctype="multipart/form-data" class="product-form">
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input class="catalogue-input" name="id" type="number" maxlength="20" required placeholder="ID">
+        </div>
+        
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="catalogue-input" name="nome" type="text" maxlength="20" required placeholder="Nome">
+        </div>
+        
+        <div class="form-group">
+            <label for="prezzo">Prezzo</label>
+            <input class="catalogue-input" name="prezzo" type="number" step="0.01" min="0" value="0" required placeholder="0.00">
+        </div>
+        
+        <div class="form-group">
+            <label for="voto">Voto</label>
+            <input class="catalogue-input" name="voto" type="number" step="0.1" required placeholder="0-10">
+        </div>
+        
+        <div class="form-group">
+            <label for="quant">Quantit&agrave;</label>
+            <input class="catalogue-input" name="quant" type="number" min="1" value="1" required placeholder="1">
+        </div>
+        
+        <div class="form-group">
+            <label for="saldo">Saldo</label>
+            <input class="catalogue-input" name="saldo" type="number" value="0" required placeholder="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="data">Data di uscita</label>
+            <input class="catalogue-input" name="data" type="date" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="descrizione">Descrizione</label>
+            <input class="catalogue-input" name="descrizione" type="text" maxlength="1000" required placeholder="Descrizione">
+        </div>
+        
+        <div class="form-group">
+            <label for="peso">Peso</label>
+            <input class="catalogue-input" name="peso" type="number" step="0.01" required placeholder="0.00">
+        </div>
+        
+        <div class="form-group">
+            <label for="img">Foto</label>
+            <input class="catalogue-input" type="file" name="img" accept="image/*">
+        </div>
+        
+        <div class="form-actions">
+            <input class="btn-det" type="submit" value="Aggiungi">
+        </div>
+    </form>
+</div>
+
+
 
 <!-- Update -->
 <h2>Prodotti</h2>
+<div class="ualert">
+    <span class="uclosebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <span id="uerrorspan"></span>
+</div>
 <%
 if (products != null && !products.isEmpty()) {
     Iterator<?> it = products.iterator();
@@ -109,65 +178,6 @@ if (products != null && !products.isEmpty()) {
 }
 %>
 
-<!-- Insert -->
-<h2>Inserisci Un Nuovo Articolo</h2>
-<div class="insert-form">
-    <form method="post" action="ProductInsert" enctype="multipart/form-data" class="product-form">
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input class="catalogue-input" name="id" type="number" maxlength="20" required placeholder="ID">
-        </div>
-        
-        <div class="form-group">
-            <label for="nome">Nome</label>
-            <input class="catalogue-input" name="nome" type="text" maxlength="20" required placeholder="Nome">
-        </div>
-        
-        <div class="form-group">
-            <label for="prezzo">Prezzo</label>
-            <input class="catalogue-input" name="prezzo" type="number" step="0.01" min="0" value="0" required placeholder="0.00">
-        </div>
-        
-        <div class="form-group">
-            <label for="voto">Voto</label>
-            <input class="catalogue-input" name="voto" type="number" step="0.1" required placeholder="0-10">
-        </div>
-        
-        <div class="form-group">
-            <label for="quant">Quantit&agrave;</label>
-            <input class="catalogue-input" name="quant" type="number" min="1" value="1" required placeholder="1">
-        </div>
-        
-        <div class="form-group">
-            <label for="saldo">Saldo</label>
-            <input class="catalogue-input" name="saldo" type="number" value="0" required placeholder="0">
-        </div>
-        
-        <div class="form-group">
-            <label for="data">Data di uscita</label>
-            <input class="catalogue-input" name="data" type="date" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="descrizione">Descrizione</label>
-            <input class="catalogue-input" name="descrizione" type="text" maxlength="1000" required placeholder="Descrizione">
-        </div>
-        
-        <div class="form-group">
-            <label for="peso">Peso</label>
-            <input class="catalogue-input" name="peso" type="number" step="0.01" required placeholder="0.00">
-        </div>
-        
-        <div class="form-group">
-            <label for="img">Foto</label>
-            <input class="catalogue-input" type="file" name="img" accept="image/*">
-        </div>
-        
-        <div class="form-actions">
-            <input class="btn-det" type="submit" value="Aggiungi">
-        </div>
-    </form>
-</div>
 
 <!-- Delete -->
 <h2>Elimina Prodotti</h2>

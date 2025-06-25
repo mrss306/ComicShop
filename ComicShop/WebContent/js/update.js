@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('form[action="ProductUpdate"]');
-    const errorSpan = document.getElementById('errorspan');
-    const alertDiv = document.querySelector('.alert');
-    const closeBtn = document.querySelector('.closebtn');
+    const errorSpan = document.getElementById('uerrorspan');
+    const alertDiv = document.querySelector('.ualert');
+    const closeBtn = document.querySelector('.uclosebtn');
 
     const patterns = {
         nome: /^.+$/, // Qualsiasi carattere (almeno uno)
