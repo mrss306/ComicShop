@@ -70,7 +70,7 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
                         <td><%=String.format("%.2f", product.getPrezzo())%> &euro;</td>
                         <td><%=product.getSaldo()%></td>
                         <td><%=formattedDate%></td>
-                        <td><%=product.getVoto()%></td>
+                        <td><%=(int)product.getVoto()%></td>
                         <td><%=product.getDescrizione()%></td>
                         <td><%=product.getPeso()%></td>
                         <td><%=product.getQuantità()%></td>

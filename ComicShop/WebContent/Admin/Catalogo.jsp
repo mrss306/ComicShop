@@ -135,7 +135,7 @@ if (products != null && !products.isEmpty()) {
         
         <div class="form-group">
             <label for="voto">Voto</label>
-            <input class="catalogue-input" name="voto" type="number" value="<%=bean.getVoto()%>" required>
+            <input class="catalogue-input" name="voto" type="number" value="<%= (int)bean.getVoto() %>" required>
         </div>
         
         <div class="form-group">
