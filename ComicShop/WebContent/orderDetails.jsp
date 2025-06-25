@@ -1,4 +1,6 @@
 <%@page import="it.unisa.model.*"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.Cart, it.unisa.model.ItemOrder"%>
 <%
@@ -54,8 +56,16 @@ LinkedList<ContentBean> products = (LinkedList<ContentBean>) session.getAttribut
 					<td><%=String.format("%.2f", order.getCosto_totale())%>
 						&euro;</td>
 					<td><%=order.getIndirizzo_spedizione()%></td>
-					<td><%=order.getData_ordine()%></td>
-					<td><%=order.getData_spedizione()%></td>
+					<td><%
+ 						      SimpleDateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd");
+ 						      SimpleDateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy");
+  							  Date date = originalFormat.parse(order.getData_ordine().toString());
+  							  out.print(targetFormat.format(date));
+					%></td>
+					<td><%
+  							  Date date2 = originalFormat.parse(order.getData_spedizione().toString());
+  							  out.print(targetFormat.format(date2));
+					%></td>
 				</tr>
 			</tbody>
 		</table>

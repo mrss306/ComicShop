@@ -2,6 +2,8 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="it.unisa.model.OrderBean"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
 <%
@@ -51,7 +53,12 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
                     <td><a
                         href="Ordine?action=mostradettagli&codice=<%=ordine.getId()%>"><%=ordine.getId()%></a>
                     </td>
-                    <td><%=ordine.getData_ordine()%></td>
+                    <td><%
+ 						      SimpleDateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd");
+ 						      SimpleDateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy");
+  							  Date date = originalFormat.parse(ordine.getData_ordine().toString());
+  							  out.print(targetFormat.format(date));
+					%></td>
                     <td><%=ordine.getCosto_totale()%> &euro;</td>
                     <td><%=ordine.getUsername()%> </td>
                 </tr>
