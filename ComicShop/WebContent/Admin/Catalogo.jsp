@@ -85,7 +85,7 @@ Collection<?> products = (Collection<?>) session.getAttribute("products");
         </div>
         
         <div class="form-group">
-            <label for="peso">Peso</label>
+            <label for="peso">Peso in kg</label>
             <input class="catalogue-input" name="peso" type="number" step="0.01" required placeholder="0.00">
         </div>
         

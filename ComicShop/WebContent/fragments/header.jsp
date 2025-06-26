@@ -21,23 +21,9 @@
 				</div>
 				<ul class="nav-list">
 
-			<%-- 		<li>
-						<div class="search">
-							<form action="search" id="searchform" method="get">
-							<input type="search" name="search" placeholder="Cerca..." />
-						</form>
-						</div>
-						
-					</li>
---%>
 				
-					<li class="nav-right"><a href="#!">Ciao, Accedi</a>
-						<ul class="nav-dropdown">
-							<li><a href="./loginPage.jsp">Accedi</a></li>
-							<li><a href="./UserPage">Il mio account</a></li>
-							<li><a href="./OrderHistory">I miei ordini</a></li>
-						</ul></li>
-					<li><a href="./OrderHistory">Storico ordini</a></li>
+					<li class="nav-right"><a href="./loginPage.jsp">Ciao, Accedi!</a>
+					<li class="nav-right"><a href="./RegistrationPage.jsp">Ciao, Registrati!</a>
 					<li><a href="./cart.jsp">Carrello</a></li>
 				</ul>
 			</nav>
