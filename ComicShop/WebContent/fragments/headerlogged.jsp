@@ -29,7 +29,6 @@
 							<li><a href="./OrderHistory">I miei ordini</a></li>
 							<li><a href="./Logout">Esci</a></li>
 						</ul></li>
-					<li><a href="./OrderHistory">Storico ordini</a></li>
 					<li><a href="./cart.jsp">Carrello</a></li>
 
 					<%
