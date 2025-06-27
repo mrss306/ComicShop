@@ -53,7 +53,8 @@ if (session == null || session.getAttribute("currentSessionUser") == null) {
 		</label> <br><br>
 		
 		<button class=btn type="submit" name="login">Login</button>
-		<button class=btn type="submit" formaction="RegistrationPage.jsp">Crea un account</button>
+		<a href="./RegistrationPage.jsp" class="btn">Crea un account</a>
+
 	</form>
 
 
